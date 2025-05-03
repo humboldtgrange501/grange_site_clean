@@ -1,0 +1,201 @@
+.navbar {
+  width: 100%;
+  background-color: #79926A;
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.navbar.sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-title {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  color: white;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Nav Links Container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.navbar.sticky .nav-links {
+  justify-content: flex-end;
+  width: auto;
+}
+
+/* Link Styling */
+.nav-links a,
+.dropdown-toggle {
+  font-family: 'Lora', serif;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  padding: 4px 8px;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus::after,
+.dropdown-toggle:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+}
+
+.nav-links a:hover,
+.nav-links a:focus,
+.dropdown-toggle:hover {
+  color: #f0f0f0;
+}
+
+/* Dropdown Container */
+.nav-item {
+  position: relative;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #79926A;
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  z-index: 1001;
+  min-width: 160px;
+  flex-direction: column;
+}
+
+.nav-item:hover .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-family: 'Lora', serif;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Mobile Nav Styling */ 
+/* Hamburger menu icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 10px;
+  z-index: 10001;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+/* Mobile full-screen menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #79926A;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 6rem;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 10000;
+}
+
+.mobile-menu a {
+  font-size: 1.7rem;
+  color: white;
+  text-decoration: none;
+  margin: 1rem 0;
+  font-family: 'Lora', serif;
+}
+
+.mobile-menu a:hover {
+  text-decoration: underline;
+}
+
+/* Media query for small screens */
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+/* Makes Hamburger go on righthand side initally */
+
+@media (max-width: 600px) {
+  /* Homepage before scrolling */
+  .navbar:not(.sticky):has(.hamburger) {
+    justify-content: center;
+    position: relative;
+  }
+
+  .navbar:not(.sticky) {
+    min-height: 64px; /* or whatever feels right */
+  }
+
+  .navbar:not(.sticky) .hamburger {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

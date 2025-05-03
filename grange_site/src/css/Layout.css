@@ -1,0 +1,135 @@
+.header-image h1 {
+  font-weight: 700;
+  font-size: 5rem;
+  margin: 0;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+/* HEADER CONTAINER — fixed scaling behavior */
+.header-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+/* BACKGROUND IMAGE — no scaling jumps */
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  z-index: 1;
+}
+
+/* OVERLAY CONTENT */
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 225px;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* LARGE LOGO */
+.logo-large {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  z-index: 10;
+  transition: all 0.3s ease-in-out;
+}
+
+/* STICKY NAV LOGO SIZE */
+.sticky .logo-large {
+  width: 100%;
+  max-width: 60px;
+  top: 10px;
+  left: 10px;
+}
+
+/* ========================================= */
+/* ========== MOBILE LAYOUT RULES ========== */
+/* ========================================= */
+
+@media (max-width: 1200px) {
+  .header-container {
+    height: 500px; /* maintains full height for tablets/smaller laptops */
+  }
+}
+@media (max-width: 768px) {
+  .header-container {
+    height: 400px;
+    max-height: 400px;
+  }
+
+  .header-overlay {
+    padding-top: 190px; /* was 160px before — moved lower */
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .header-image h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    padding-right: 30px;
+  }
+
+  .logo-large {
+    width: 100%;
+    max-width: 90px;
+    top: 15px;
+    left: 15px;
+  }
+
+  .sticky .logo-large {
+    width: 50px;
+    top: 8px;
+    left: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    height: 350px;
+    max-height: 350px;
+  }
+
+  .header-overlay {
+    padding-top: 165px; /* was 140px before — also moved lower */
+  }
+
+  .header-image h1 {
+    font-size: 2rem;
+  }
+
+  .logo-large {
+    width: 100%;
+    max-width: 80px;
+  }
+
+  .sticky .logo-large {
+    width: 100%;
+    max-width: 45px;
+  }
+}
+

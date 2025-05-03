@@ -1,0 +1,77 @@
+
+.homepage-floral-welcome h1 {
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 2.5rem;
+  }
+  
+  .homepage-floral-welcome {
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .floral-accent {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+  }
+  
+  .homepage-welcome-text {
+    width: 95%;
+    margin: auto;
+    text-align: center;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .homepage-welcome-text-subsection {
+    width: 80%;
+  }
+  
+  .homepage-welcome-text p {
+    text-align: center; 
+  }
+  
+  .homepage-welcome-text a{
+    color: #2e7ba5; 
+  }
+  
+  .subscribe-form-div {
+    display: flex; 
+    width: 60%; 
+    margin: auto;
+    justify-content: center; 
+    align-items: center;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .p1, .p2{
+      font-size: 1.2rem;
+    }
+  
+    .homepage-floral-welcome h1 {
+      font-size: 1.5rem;
+      padding: 0px;
+    }
+  
+    .floral-accent {
+      height: 65px;
+      width: auto;
+    }
+  
+    .homepage-floral-welcome {
+      gap: 0.5rem;
+      align-items: center;
+    }
+  
+    .subscribe-form-div {
+      width: 90%;
+    }
+    
+  }

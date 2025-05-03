@@ -1,0 +1,29 @@
+
+/* CALENDAR STYLING */ 
+.calendar-agenda {
+    display: none;
+  }
+
+.calendar-section {
+width: 98%;
+margin: auto; 
+}
+
+.calendar-section iframe {
+border-radius: 15px;
+}
+  
+@media (max-width: 600px) {
+.calendar-full {
+    display: none;
+}
+.calendar-agenda {
+    display: block;
+}
+.calendar-agenda-div {
+    width: 90%;
+    margin: auto;
+}
+}
+
+

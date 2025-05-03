@@ -1,0 +1,89 @@
+
+
+/* JOIN/MEMBER PAGE STYLING  */ 
+
+.membership-info-div .p2 {
+    width: 80%;
+    margin: auto;
+  }
+  
+  .membership-info-div .p1, 
+  .membership-info-div .p2 {
+    text-align: center; 
+  }
+  
+  .membership-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+  }
+  
+  .membership-info-breakdown .dues {
+    /*text-align: left;*/
+    margin-bottom: 0;
+  }
+  
+  .membership-info-breakdown {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+    padding: 0;
+    margin:0;
+  }
+  
+  .membership-info-breakdown ul {
+    padding-left: 1.5rem;
+    margin-top: 0;
+  }
+  
+  .membership-info-breakdown ul a{
+    color: #2e7ba5;
+  }
+  
+  .membership-info-breakdown .third-button {
+    width: 50%;
+    align-self: center;
+    margin-top: 1rem;
+  }
+  
+  .membership-application-buttons {
+    display: flex; 
+    justify-content: space-evenly;
+    gap: 1rem;
+  }
+  
+  .member-steps {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between;
+    width: 75%;
+    margin: auto; 
+    margin-bottom: 1rem;
+  }
+  
+  .mailto {
+    color: #333;
+  }
+  
+  @media screen and (max-width: 1090px) {
+    .membership-info-breakdown {
+      border: 3px solid #2e7ba5;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 3em;
+    }
+  
+    .membership-options, .member-steps{
+      flex-direction: column;
+      justify-self: center;
+
+    }
+    
+    .member-steps h2{
+      margin: 10px 0px; 
+    }
+
+  }
+  

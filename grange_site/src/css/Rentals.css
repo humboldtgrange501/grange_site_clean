@@ -1,0 +1,11 @@
+
+/* RENTAL STYLING */
+.rental-div p {
+    text-align: center;
+  }
+  
+  .rental-div ul {
+    width: 100%; 
+    max-width: 400px;
+    margin: auto;
+  }
