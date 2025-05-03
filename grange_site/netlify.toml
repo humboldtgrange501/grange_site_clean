@@ -4,6 +4,3 @@
 
 [build.environment]
   NODE_VERSION = "16"
-
-[functions]
-  directory = ""  # disables default function detection
