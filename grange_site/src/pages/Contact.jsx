@@ -20,6 +20,11 @@ export function Contact () {
 
             <div style={{ marginTop: '1.5rem' }}>
 
+            <p className="p2">
+                    <strong>Phone:</strong> <br/>
+                    <a href="tel:7074424890">(707) 442-4890</a>
+                </p>
+
                 <div className="email-div">
                     <p className="p2 emails">
                         <strong>General Inquiries:</strong> 
@@ -54,10 +59,7 @@ export function Contact () {
 
                    
                 </div>
-                <p className="p2">
-                    <strong>Phone:</strong> <br/>
-                    <a href="tel:7074424890">(707) 442-4890</a>
-                </p>
+               
                 
             </div>
         </div>

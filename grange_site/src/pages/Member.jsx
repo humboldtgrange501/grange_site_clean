@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import PrimaryButton from '../components/PrimaryButton';
 import ThirdButton from '../components/ThirdButton';
 import '../css/Member.css';
+import AssociateMembers from '../components/AssociateMembers';
 
 export function Member () {
     useEffect(() => {
@@ -62,7 +63,7 @@ export function Member () {
                         </div>
                     </div>
 
-                    <div className="membership-info-breakdown"> {/* Associate Membership Info */}
+                    <div className="membership-info-breakdown" id="associate-membership-info"> {/* Associate Membership Info */}
                         <PrimaryButton to="pdfs/application-forms/Associate_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Associate Membership</PrimaryButton>
                         <h3 className="dues">Annual Dues: $40</h3>
                         <ul>
@@ -130,7 +131,26 @@ export function Member () {
                 </p>
                 
                 <h2>Member Benefits</h2>
-                <p className="p2">Grange Members Enjoy a wide range of benefits. Benefit descriptions coming soon! </p>
+                <div className="p2 benefits">
+                    <p>Active Grange members enjoy a wide range of benefits including: </p>
+                    <ul>
+                        <li><p>Discounted hall rental and table fees at markets.</p></li>
+                        <li><p>Scholarship opportunities for members or descendants of members attending college.</p></li>
+                        <li><p>Access to National Grange benefits. For a full list of benefits please view the {' '}
+                              <a href="https://www.nationalgrange.org/our-values/benefits-to-members/" target="_blank">
+                                 National Grange Website
+                              </a>.
+                            </p>
+                        </li>
+                    </ul> 
+                </div>
+
+                <h2>Our Current Associate Members</h2>
+                <p style={{ textAlign: 'center' }}>Interested in becoming an Associate member?  {' '}
+                    <a href="#associate-membership-info">Join the Grange</a> today!</p>
+                <div>
+                    <AssociateMembers />
+                </div>
                
             </div>
         </>
