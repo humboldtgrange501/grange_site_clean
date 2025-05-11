@@ -19,15 +19,21 @@ export function Contact () {
                 </p>
 
             <div style={{ marginTop: '1.5rem' }}>
-                <p className="p2">
-                    <strong>Phone:</strong> {''}
-                    <a href="tel:7074424890">(707) 442-4890</a>
-                </p>
 
-                <p className="p2">
-                    <strong>Email:</strong> {''}
-                    <a href="mailto:501.humboldt.grange@gmail.com">501.humboldt.grange@gmail.com</a>
-                </p>
+                <div className="email-div">
+                    <p className="p2 emails">
+                        <strong>General Inquiries:</strong> 
+                        <br/>
+                        <a href="mailto:info@humboldtgrange501.org">info@humboldtgrange501.org</a>
+                    </p>
+
+                    <p className="p2 emails">
+                        <strong>Rentals:</strong> <br/> <a href="mailto:rentals@humboldtgrange501.org">rentals@humboldtgrange501.org</a>
+                    </p>
+                </div>
+
+               
+            
 
                 <div className="contact-addresses">
                     <p className="p2">
@@ -45,7 +51,13 @@ export function Contact () {
                         <br />
                         Eureka, California 95502
                     </p>
+
+                   
                 </div>
+                <p className="p2">
+                    <strong>Phone:</strong> <br/>
+                    <a href="tel:7074424890">(707) 442-4890</a>
+                </p>
                 
             </div>
         </div>

@@ -6,24 +6,14 @@ const teamData = [
     {
         name: 'Maurice Viand',
         role: 'President',
-        photo: '/images/team/maurice.png'
-    },
-    {
-        name: 'Mavis Amen',
-        role: 'Vice President',
-        photo: '/images/team/mavis.png'
-
+        photo: '/images/team/maurice.jpg'
     },
     {
         name: 'Kathy Moley',
         role: 'Secretary',
-        photo: '/images/team/kathy.png'
+        photo: '/images/team/kathy.jpg'
     },
-    {
-        name: 'Janice Simmons',
-        role: 'Treasurer',
-        photo: '/images/team/janice.png'
-    },
+
 
 ];
 

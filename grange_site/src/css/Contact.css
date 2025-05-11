@@ -12,9 +12,15 @@
     flex-direction: row;
     justify-content: space-evenly;
   }
+
+  .email-div {
+    display: flex; 
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
   
   @media (max-width: 600px) {
-    .contact-addresses {
+    .contact-addresses, .email-div{
       flex-direction: column;
     }
   }

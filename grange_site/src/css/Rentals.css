@@ -9,3 +9,14 @@
     max-width: 400px;
     margin: auto;
   }
+
+  .rental-div {
+    margin: 0 4rem;
+  }
+
+
+  @media screen and (max-width: 600px) {
+    .rental-div{
+      margin: 0 2rem;
+    }
+  }

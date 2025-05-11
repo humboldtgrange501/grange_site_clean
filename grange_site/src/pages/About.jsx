@@ -66,7 +66,7 @@ export function About () {
                     <h3>As a <span className="org-title">Community Organization</span> we:</h3>
                     <ul>
                         <li><p>Lead local service projects.</p></li>
-                        <li><p>Partner with schools, churches, and agencies.</p></li>
+                        <li><p>Partner with schools, churches, and other service groups.</p></li>
                         <li><p>Promote lifelong learning.</p></li>
                     </ul>
                 </div>
@@ -84,9 +84,9 @@ export function About () {
                 <div className="org-list-div">
                     <h3>As a <span className="org-title">Fraternal Organization</span> we:</h3>
                     <ul>
-                        <li><p>Promote patriotic and civic activities.</p></li>
                         <li><p>Provide social and recreational fellowship.</p></li>
-                        <li><p>Foster brotherhood in an atmosphere of mutual concern.</p></li>
+                        <li><p>Foster brotherhood in an atmosphere of mutual interest.</p></li>
+                        <li><p>Work together to improve our community.</p></li>
                     </ul>
                 </div>
 

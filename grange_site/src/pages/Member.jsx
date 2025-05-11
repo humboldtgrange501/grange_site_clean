@@ -126,7 +126,7 @@ export function Member () {
                
                 <h2>Monthly Grange Meetings</h2>
                 <p className="p2">
-                    We meet in-person on the second Thursday of the month from 6:30 to 8pm. 
+                    We meet in-person on the second Thursday of the month from 6:30 to 8:30pm. 
                 </p>
                 
                 <h2>Member Benefits</h2>
