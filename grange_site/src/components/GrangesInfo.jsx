@@ -54,7 +54,8 @@ const grangeData = [
         address: '36512 Mattole Rd. Petrolia, CA 95558',
         meeting_time: 'Every 2nd Thursday',
         phone: '707-629-3421',
-        photo: '/images/granges/mattole_grange.jpg'
+        photo: '/images/granges/mattole_grange.jpeg',
+        website: 'https://mattolegrange.org'
     },
     {
         grange_name: 'Redcrest Community Grange #504',

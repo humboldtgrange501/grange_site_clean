@@ -123,21 +123,39 @@ export function Member () {
                     </div>
                 </div>
 
+                <div className="junior-membership"> {/* Junior Membership Info */}
+                        <PrimaryButton to="pdfs/application-forms/Junior_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Junior Grange Membership &mdash; for ages 5 to 14</PrimaryButton>
+                        <h3 className="dues">Annual Dues:</h3>
+                        <p> Junior Grange membership is open to any child at least 5 years 
+                            old and not be older than 14 years (membership terminates at the 
+                            end of the year when the member reaches 14).
+                            
+                            To join, applications may be submitted to the Humboldt Grange #501. 
+                            The application must be signed by a parent or guardian. Click below to get 
+                            the application, and get ready to have fun in the Junior Grange!
+                        </p>
+                        <div className="membership-application-buttons">
+                            <ThirdButton to="pdfs/application-forms/Junior_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Apply as a Junior Grange Member Today!</ThirdButton>
+                        </div>
+                </div>
+
+                
+
                 <h2>Once you've filled out the application <a href="mailto:humboldt.grange.501@gmail.com" className="mailto">email</a> it to us or bring to a meeting.</h2>
                
-                <h2>Monthly Grange Meetings</h2>
+                <h2 className="monthly-meeting-h2">Monthly Grange Meetings</h2>
                 <p className="p2">
                     We meet in-person on the second Thursday of the month from 6:30 to 8:30pm. 
                 </p>
                 
-                <h2>Member Benefits</h2>
+                <h2 className="benefits-h2">Member Benefits</h2>
                 <div className="p2 benefits">
                     <p>Active Grange members enjoy a wide range of benefits including: </p>
                     <ul>
                         <li><p>Discounted hall rental and table fees at markets.</p></li>
-                        <li><p>Scholarship opportunities for members or descendants of members attending college.</p></li>
+                        <li><p><a href="/scholarships" target="_blank" rel="norefferrer">Scholarship opportunities</a> for members or descendants of members attending college.</p></li>
                         <li><p>Access to National Grange benefits. For a full list of benefits please view the {' '}
-                              <a href="https://www.nationalgrange.org/our-values/benefits-to-members/" target="_blank">
+                              <a href="https://www.nationalgrange.org/our-values/benefits-to-members/" target="_blank" rel="noreferrer">
                                  National Grange Website
                               </a>.
                             </p>
@@ -145,7 +163,7 @@ export function Member () {
                     </ul> 
                 </div>
 
-                <h2>Our Current Associate Members</h2>
+                <h2 className="associate-members-h2">Our Current Associate Members</h2>
                 <p style={{ textAlign: 'center' }}>Interested in becoming an Associate member?  {' '}
                     <a href="#associate-membership-info">Join the Grange</a> today!</p>
                 <div>

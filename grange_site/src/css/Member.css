@@ -35,6 +35,7 @@
     border: 3px solid #2e7ba5;
     border-radius: 5px;
     padding: 15px;
+
   }
   
   .membership-info-breakdown ul {
@@ -50,6 +51,25 @@
     width: 50%;
     align-self: center;
     margin-top: 1rem;
+  }
+
+  .junior-membership {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    padding: 0;
+    margin: 2rem;
+    border: 3px solid #2e7ba5;
+    border-radius: 5px;
+    padding: 15px;
+    justify-self: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .junior-membership p {
+    margin-top: 0;
   }
   
   .membership-application-buttons {
@@ -74,13 +94,21 @@
   .benefits ul li p{
     text-align: left;
   }
+
+  .associate-members-h2, .benefits-h2, .monthly-meeting-h2 {
+    margin-top: 3.5rem;
+  }
   
   @media screen and (max-width: 1090px) {
-    .membership-info-breakdown {
+    .membership-info-breakdown, .junior-membership {
       border: 3px solid #2e7ba5;
       border-radius: 5px;
       padding: 15px;
       margin-bottom: 3em;
+      max-width: 350px;
+    }
+    .junior-membership {
+      margin: 0;
     }
   
     .membership-options, .member-steps{

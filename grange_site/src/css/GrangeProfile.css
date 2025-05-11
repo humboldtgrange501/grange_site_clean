@@ -8,6 +8,10 @@
     text-align: left;
 }
 
+.grange-profile p {
+    font-family: 'Open Sans';
+}
+
 .grange-name {
     font-size: 1.2rem;
     font-weight: bold;
