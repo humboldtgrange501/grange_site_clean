@@ -1,0 +1,18 @@
+{
+	"geolocation": {
+		"data": {
+			"country": {
+				"code": "US",
+				"name": "United States"
+			},
+			"subdivision": {
+				"code": "NV",
+				"name": "Nevada"
+			},
+			"timezone": "America/Los_Angeles",
+			"latitude": 36.175,
+			"longitude": -115.1372
+		},
+		"timestamp": 1746269823692
+	}
+}
