@@ -14,7 +14,6 @@ const teamData = [
         photo: '/images/team/kathy.jpg'
     },
 
-
 ];
 
 const LeadershipTeam = () => {

@@ -94,6 +94,8 @@ export function About () {
             <blockquote className="quote">
                 "In essentials, unity; in non-essentials, liberty; in all things, charity." &mdash; Grange Motto
             </blockquote>
+
+            <PrimaryButton to="/about/humboldt-county-granges">See All Humboldt County Granges</PrimaryButton>
             
         </div>
         </>

@@ -44,6 +44,7 @@ export default function Navbar() {
             <div className="dropdown-menu">
               <Link to="/about/history">Our History</Link>
               <Link to="/about/officers">Our Officers</Link>
+              <Link to="/about/humboldt-county-granges">Humboldt County Granges</Link>
             </div>
           </div>
 
@@ -62,6 +63,7 @@ export default function Navbar() {
           <Link to="/about" onClick={closeMobileMenu}>About Us</Link>
           <Link to="/about/history" onClick={closeMobileMenu}>Our History</Link>
           <Link to="/about/officers" onClick={closeMobileMenu}>Our Officers</Link>
+          <Link to="/about/humboldt-county-granges" onClick={closeMobileMenu}>Humboldt County Granges</Link>
           <Link to="/membership" onClick={closeMobileMenu}>Join Us</Link>
           <Link to="/calendar" onClick={closeMobileMenu}>Calendar</Link>
           <Link to="/rentals" onClick={closeMobileMenu}>Rentals</Link>

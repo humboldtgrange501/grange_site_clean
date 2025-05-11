@@ -6,6 +6,7 @@ import {About} from './pages/About.jsx';
 import {Contact} from './pages/Contact.jsx'; 
 import {Member} from './pages/Member.jsx'; 
 import {Team} from './pages/Team.jsx';
+import {Granges} from './pages/Granges.jsx';
 import {History} from './pages/History.jsx'; 
 import {Rentals} from './pages/Rentals.jsx';
 import {Calendar} from './pages/Calendar.jsx';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/about/history" element={<History />} />
           <Route path="/membership" element={<Member/>}/>
           <Route path="/about/officers" element={<Team />} />  
+          <Route path="/about/humboldt-county-granges" element={<Granges />} />  
           <Route path="/calendar" element={<Calendar/>}/>
           <Route path="/rentals" element={<Rentals/>}/>
           <Route path="/contact" element={<Contact/>}/>
