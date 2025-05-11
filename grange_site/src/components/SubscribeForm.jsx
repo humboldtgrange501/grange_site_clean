@@ -22,7 +22,7 @@ export default function SubscribeForm() {
       if (!res.ok) throw new Error('Request failed');
       
       // Step 2: Log the email in Supabase
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('subscribers') 
         .insert([{ email }]);  // Add email to database
 
