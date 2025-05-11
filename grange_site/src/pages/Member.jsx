@@ -137,7 +137,7 @@ export function Member () {
                         <li><p>Discounted hall rental and table fees at markets.</p></li>
                         <li><p>Scholarship opportunities for members or descendants of members attending college.</p></li>
                         <li><p>Access to National Grange benefits. For a full list of benefits please view the {' '}
-                              <a href="https://www.nationalgrange.org/our-values/benefits-to-members/" target="_blank">
+                              <a href="https://www.nationalgrange.org/our-values/benefits-to-members/" target="_blank" rel="noreferrer">
                                  National Grange Website
                               </a>.
                             </p>

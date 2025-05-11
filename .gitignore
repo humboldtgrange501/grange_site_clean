@@ -1,2 +1,17 @@
-# Local Netlify folder
-.netlify
+# Ignore environment variable files
+.env
+
+# Ignore node_modules (this can be regenerated with npm install)
+node_modules/
+
+# Ignore build folders or other generated files
+build/
+dist/
+
+# Optionally, ignore logs and cache
+*.log
+*.cache
+
+# Ignore server-side scripts that might contain sensitive logic
+server.js
+mailgun.js
