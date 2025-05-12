@@ -11,6 +11,10 @@ import {History} from './pages/History.jsx';
 import {Rentals} from './pages/Rentals.jsx';
 import {Calendar} from './pages/Calendar.jsx';
 import { Layout } from './Layout.jsx';
+import { Login } from './pages/Login.jsx';
+import { AdminDashboard } from './pages/AdminDashboard.jsx';
+
+
 import { Scholarships } from './pages/Scholarships.jsx';
 
 function App() {
@@ -29,6 +33,8 @@ function App() {
           <Route path="/rentals" element={<Rentals/>}/>
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/scholarships" element={<Scholarships/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
         </Route>
       </Routes>
     </Router>

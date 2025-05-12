@@ -52,6 +52,7 @@ export default function Navbar() {
           <Link to="/calendar">Calendar</Link>
           <Link to="/rentals">Rentals</Link>
           <Link to="/contact">Contact</Link>
+          <Link to="/login">Login</Link>
         </div>
       </nav>
 
@@ -68,6 +69,7 @@ export default function Navbar() {
           <Link to="/calendar" onClick={closeMobileMenu}>Calendar</Link>
           <Link to="/rentals" onClick={closeMobileMenu}>Rentals</Link>
           <Link to="/contact" onClick={closeMobileMenu}>Contact</Link>
+          <Link to="/login" onClick={closeMobileMenu}>Login</Link>
         </div>
       )}
     </>
