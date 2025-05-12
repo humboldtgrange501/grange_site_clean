@@ -81,7 +81,6 @@ export function Member () {
                         </ul>
                         <div className="membership-application-buttons">
                             <ThirdButton to="pdfs/application-forms/Associate_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Apply <br/>Now</ThirdButton>
-                            <ThirdButton to="pdfs/application-forms/Associate_Member_Application_Humboldt_Grange_501_Espanol.pdf" newTab>Applicar<br/> Ahora</ThirdButton>
                         </div>
                     </div>
 
