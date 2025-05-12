@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../css/SubscribeForm.css';
-import supabase from '../SupabaseClient'; // Import Supabase client
+import supabase from '../SupabaseClient'; 
 
 export default function SubscribeForm() {
 
@@ -12,14 +12,14 @@ export default function SubscribeForm() {
     setStatus('loading');
   
     try {
-      // Step 1: Send email via your backend (Mailgun)
+     /* // Step 1: Send email via Mailgun)
       const res = await fetch('http://localhost:5000/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       });
 
-      if (!res.ok) throw new Error('Request failed');
+      if (!res.ok) throw new Error('Request failed');*/
       
       // Step 2: Log the email in Supabase
       const { error } = await supabase

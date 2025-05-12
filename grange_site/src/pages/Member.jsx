@@ -33,7 +33,7 @@ export function Member () {
                 <div className="membership-options"> {/* Holds all the info sections */}
 
                     <div className="membership-info-breakdown"> {/* Individual Membership Info */}
-                        <PrimaryButton to="pdfs/application-forms/Individual_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Individual Membership</PrimaryButton>
+                        <PrimaryButton to="/membership">Individual Membership</PrimaryButton>
                         <h3 className="dues">Annual Dues: $32</h3>
                         <p> Individual Grange membership is open to any person of good character who has a
                                     desire to serve their community and be part of the larger fraternal Grange family.
@@ -55,7 +55,7 @@ export function Member () {
                             </li>
                         </ul>*/}
                         <div className="membership-application-buttons">
-                            <ThirdButton to="pdfs/application-forms/Individual_Member_Application_Humboldt_Grange_501_En.pdf" newTab>
+                            <ThirdButton to="/sign-up-individual" newTab>
                                 Apply Now
                             </ThirdButton>
                         </div>

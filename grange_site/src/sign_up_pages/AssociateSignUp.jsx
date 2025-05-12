@@ -16,6 +16,7 @@ const AssociateSignUp = () => {
   const [membershipConfirm, setMembershipConfirm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [signature, setSignature] = useState('');
+  const [retired, setRetired] = useState(false);
 
   const membershipType = 'associate'; 
 
@@ -47,6 +48,7 @@ const AssociateSignUp = () => {
             membership_type: membershipType,
             application_date: new Date().toISOString().split('T')[0],
             signature,
+            retired
             // family_id: someValidId, <-- if your schema requires this
           },
         ]);
@@ -82,7 +84,7 @@ const AssociateSignUp = () => {
   return (
     <div className="signup-container">
       <h2>Associate Membership Application</h2>
-      <p>Please bring a check or cash for $45 to cover your application fee ($5) and dues ($40) at our next Grange meeting. 
+      <p>Please bring $45 (cash/check) to cover your application fee ($5) and dues ($40) at our next Grange meeting. 
         To view our meeting times, please see our calendar {' '}
         <a href="/calendar" target="_blank" rel="norefferer">here</a>.</p>
       <form onSubmit={handleSubmit} className="signup-form">
@@ -247,6 +249,34 @@ const AssociateSignUp = () => {
             required
           />
         </div>
+
+        <div className="form-group">
+          <label>Are you retired?</label>
+          <div>
+            <input
+              type="radio"
+              id="retiredYes"
+              name="retired"
+              value="Yes"
+              checked={retired === 'Yes'}
+              onChange={(e) => setRetired(e.target.value)}
+              required
+            />
+            <label htmlFor="retiredYes">Yes</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="retiredNo"
+              name="retired"
+              value="No"
+              checked={retired === 'No'}
+              onChange={(e) => setRetired(e.target.value)}
+            />
+            <label htmlFor="retiredNo">No</label>
+          </div>
+        </div>
+
 
         <div className="form-group">
         <label htmlFor="signature">Signature (Please type your full name to sign this application)</label>
