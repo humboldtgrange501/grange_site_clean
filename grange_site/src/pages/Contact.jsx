@@ -18,7 +18,41 @@ export function Contact () {
                                  or just want to say hello—feel free to reach out.
                 </p>
 
-            <div style={{ marginTop: '1.5rem' }}>
+                <div className="contact-table">
+                    <div className="contact-row">
+                        <div className="contact-label">Phone:</div>
+                        <div className="contact-data">(707) 442-4890</div>
+                    </div>
+                    <div className="contact-row">
+                        <div className="contact-label">General Inquiries:</div>
+                        <div className="contact-data">
+                        <a href="mailto:info@humboldtgrange501.org">info@humboldtgrange501.org</a>
+                        </div>
+                    </div>
+                    <div className="contact-row">
+                        <div className="contact-label">Rentals:</div>
+                        <div className="contact-data">
+                        <a href="mailto:rentals@humboldtgrange501.org">rentals@humboldtgrange501.org</a>
+                        </div>
+                    </div>
+                    <div className="contact-row">
+                        <div className="contact-label">Visit Us:</div>
+                        <div className="contact-data">
+                        5845 Humboldt Hill Road<br />
+                        Eureka, California 95503
+                        </div>
+                    </div>
+                    <div className="contact-row">
+                        <div className="contact-label">Mailing Address:</div>
+                        <div className="contact-data">
+                        P.O. Box 6264<br />
+                        Eureka, California 95502
+                        </div>
+                    </div>
+                </div>
+
+
+           {/* <div style={{ marginTop: '1.5rem' }}>
 
             <p className="p2">
                     <strong>Phone:</strong> <br/>
@@ -61,7 +95,7 @@ export function Contact () {
                 </div>
                
                 
-            </div>
+            </div>*/}
         </div>
 
         <div style={{ marginTop: '3rem', textAlign: "center"}}>

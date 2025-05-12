@@ -25,6 +25,7 @@ export function Login() {
 
   return (
     <>
+    <div className="login-page">
         <h1>Grange Admin Login</h1>
         <form onSubmit={handleLogin}>
             <div className="login-fields">
@@ -33,6 +34,7 @@ export function Login() {
             </div>
             <button type="submit">Login</button> 
         </form>
+    </div>
     </>
   )
 }

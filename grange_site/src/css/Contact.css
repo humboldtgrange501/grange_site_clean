@@ -24,3 +24,60 @@
       flex-direction: column;
     }
   }
+
+  .contact-table {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    margin: 2rem auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .contact-row {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .contact-label,
+  .contact-data {
+    padding: 1rem;
+    flex: 1;
+    border-right: 1px solid #ccc;
+  }
+  
+  .contact-label {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: 'Georgia', serif;
+  }
+  
+  .contact-row:last-child {
+    border-bottom: none;
+  }
+  
+  .contact-data {
+    border-right: none;
+  }
+  
+  /* Responsive: Stack label and data on small screens */
+  @media (max-width: 600px) {
+    .contact-row {
+      flex-direction: column;
+      border-bottom: 1px solid #ccc;
+    }
+  
+    .contact-label,
+    .contact-data {
+      border-right: none;
+      border-bottom: 1px solid #eee;
+    }
+  
+    .contact-data {
+      border-bottom: none;
+    }
+  }
+  

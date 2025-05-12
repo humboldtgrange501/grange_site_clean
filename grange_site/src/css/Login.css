@@ -1,39 +1,58 @@
-form {
+/* New or updated styles */
+.login-page {
+    
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center; 
-    width: 90%; 
-    margin: 0 auto; 
+    padding: 2rem 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.login-page form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+    gap: 2rem;
 }
 
 .login-fields {
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    gap: 10px; 
-    align-items: center; 
+    gap: 16px;
+    width: 100%;
+    align-items: center;
+}
+
+.login-page input[type="email"] {
+    padding: 14px !important;
+    font-size: 20px !important;
 }
 
 .login-fields input {
     width: 100%;
-    max-width: 300px; 
-    padding: 10px; 
-    margin: 5px 0; 
+    max-width: 400px;
+    padding: 14px;
+    font-size: 20px;
+    
 }
 
-button[type="submit"] {
+.login-page button[type="submit"] {
+    max-width: 400px;
+    padding: 16px 40px;
+    font-size: 18px;
     background-color: #2e7ba5;
     border-radius: 5px;
     color: white; 
-    padding: 10px 20px; 
     border: none; 
-    cursor: pointer; 
-    font-size: 16px; 
+    font-size: 24px; 
     margin-top: 10px; 
-    width: 100%; 
-    max-width: 300px; 
 }
 
-button[type="submit"]:hover {
-    background-color: #1b5d7f; 
+@media screen and (max-width: 600px) {
+    .login-page {
+        padding: 7rem 1rem;
+  }
 }

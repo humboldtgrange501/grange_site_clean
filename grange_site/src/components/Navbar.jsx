@@ -8,6 +8,7 @@ export default function Navbar() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
+
   useEffect(() => {
     if (isHomePage) {
       const handleScroll = () => {
@@ -52,7 +53,9 @@ export default function Navbar() {
           <Link to="/calendar">Calendar</Link>
           <Link to="/rentals">Rentals</Link>
           <Link to="/contact">Contact</Link>
-          <Link to="/login">Login</Link>
+          <Link to="/login">
+            <span className="material-symbols-outlined">person</span>
+          </Link>
         </div>
       </nav>
 
@@ -69,7 +72,8 @@ export default function Navbar() {
           <Link to="/calendar" onClick={closeMobileMenu}>Calendar</Link>
           <Link to="/rentals" onClick={closeMobileMenu}>Rentals</Link>
           <Link to="/contact" onClick={closeMobileMenu}>Contact</Link>
-          <Link to="/login" onClick={closeMobileMenu}>Login</Link>
+          <Link to="/login" onClick={closeMobileMenu} id="login-icon-nav">Login</Link>
+
         </div>
       )}
     </>
