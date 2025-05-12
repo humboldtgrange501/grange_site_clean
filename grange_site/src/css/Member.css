@@ -35,7 +35,7 @@
     border: 3px solid #2e7ba5;
     border-radius: 5px;
     padding: 15px;
-
+    text-align: center;
   }
   
   .membership-info-breakdown ul {
@@ -50,7 +50,6 @@
   .membership-info-breakdown .third-button {
     width: 50%;
     align-self: center;
-    margin-top: 1rem;
   }
 
   .junior-membership {
@@ -98,6 +97,17 @@
   .associate-members-h2, .benefits-h2, .monthly-meeting-h2 {
     margin-top: 3.5rem;
   }
+
+  .membership-disclaimer p {
+    font-family: 'Open Sans';
+    text-align: center;
+  }
+
+  .membership-disclaimer .spanish-disclaimer {
+    font-style: italic;
+  }
+
+
   
   @media screen and (max-width: 1090px) {
     .membership-info-breakdown, .junior-membership {

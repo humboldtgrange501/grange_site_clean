@@ -1,0 +1,39 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center; 
+    width: 90%; 
+    margin: 0 auto; 
+}
+
+.login-fields {
+    display: flex; 
+    flex-direction: column;
+    gap: 10px; 
+    align-items: center; 
+}
+
+.login-fields input {
+    width: 100%;
+    max-width: 300px; 
+    padding: 10px; 
+    margin: 5px 0; 
+}
+
+button[type="submit"] {
+    background-color: #2e7ba5;
+    border-radius: 5px;
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    cursor: pointer; 
+    font-size: 16px; 
+    margin-top: 10px; 
+    width: 100%; 
+    max-width: 300px; 
+}
+
+button[type="submit"]:hover {
+    background-color: #1b5d7f; 
+}

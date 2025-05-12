@@ -35,12 +35,13 @@ export function Member () {
                     <div className="membership-info-breakdown"> {/* Individual Membership Info */}
                         <PrimaryButton to="pdfs/application-forms/Individual_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Individual Membership</PrimaryButton>
                         <h3 className="dues">Annual Dues: $32</h3>
-                        <ul>
-                            <li>
-                                <p> Individual Grange membership is open to any person of good character who has a
+                        <p> Individual Grange membership is open to any person of good character who has a
                                     desire to serve their community and be part of the larger fraternal Grange family.
-                                    Membership begins at 13 and a half years of age.
-                                </p>
+                                    Membership begins at 13.5 years of age.
+                        </p>
+                        {/*<ul>
+                            <li>
+                                
                             </li>
                             <li>
                                 <p> To join, applications may be submitted to the Humboldt Grange #501.
@@ -52,55 +53,56 @@ export function Member () {
                                     you will be inducted into the Grange.
                                 </p>
                             </li>
-                        </ul>
+                        </ul>*/}
                         <div className="membership-application-buttons">
                             <ThirdButton to="pdfs/application-forms/Individual_Member_Application_Humboldt_Grange_501_En.pdf" newTab>
-                                Apply <br/> Now
+                                Apply Now
                             </ThirdButton>
-                            <ThirdButton to="pdfs/application-forms/Individual_Member_Application_Humboldt_Grange_501_Espanol.pdf" newTab>
-                                Applicar<br/> Ahora
-                            </ThirdButton>
+                        </div>
+
+                        <div className="membership-disclaimer">
+                            <p> OR download a PDF version {' '}
+                                <a href="pdfs/application-forms/Individual_Member_Application_Humboldt_Grange_501_En.pdf" target="_blank" rel="norefferer" >here</a>. 
+                                <br/>
+                                Please email your filled out application to  {' '}
+                                <a href="mailto:info@humboldtgrange501.org">info@humboldtgrange501.org</a> {' '}
+                                or bring it in person!
+                            </p>
+                            <p className="spanish-disclaimer">¿Necesitas una versión en español? Descarga nuestra solicitud de membresía individual {' '}
+                                <a href="pdfs/application-forms/Individual_Member_Application_Humboldt_Grange_501_Espanol.pdf" target="_blank" rel="norefferer">aquí</a>.
+                                Envía tu solicitud completa por correo electrónico a {' '}
+                                <a href="mailto:info@humboldtgrange501.org">info@humboldtgrange501.org</a> {' '}
+                                o tráela en persona.
+                            </p>
                         </div>
                     </div>
 
-                    <div className="membership-info-breakdown" id="associate-membership-info"> {/* Associate Membership Info */}
-                        <PrimaryButton to="pdfs/application-forms/Associate_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Associate Membership</PrimaryButton>
-                        <h3 className="dues">Annual Dues: $40</h3>
-                        <ul>
-                            <li>
-                                <p> Associate membership is open to individuals and businesses who are looking to support a
-                                    Grange in their Community. Associate members are Grange supporters and <em>cannot</em> vote in a
-                                    Grange meeting.
-                                </p>
-                            </li>
-                            <li>
-                                <p> To join, applications may be submitted to the Humboldt Grange #501.
-                                    The application must be signed by at least one current member of the Grange.
-                                </p>
-                            </li>
-                        </ul>
-                        <div className="membership-application-buttons">
-                            <ThirdButton to="pdfs/application-forms/Associate_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Apply <br/>Now</ThirdButton>
-                        </div>
-                    </div>
+                    
 
                     <div className="membership-info-breakdown"> {/* Family Membership Info */}
                         <PrimaryButton to="pdfs/application-forms/Family_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Family Membership</PrimaryButton>
                         <h3 className="dues">Annual Dues: $64</h3>
-                        <ul>
-                            <li>
-                                <p> The Grange offers a family membership program open to any person of good character
+                        <p> The Grange offers a family membership program open to any person of good character
                                     who has a desire to serve their community and be part of the larger fraternal Grange family.
                                     Membership begins at 13 and a half years of age.
-                                </p>
+                        <br/>
+                        <br/>
+                        A family consists of a couple and their dependents, or a single person and their dependents.
+                                    Dependents are defined as children, grandchildren, great grandchildren, foster, adopted or step-children
+                                    under the age of 23, who live in the same household
+                                    (or at a different address due to illness, education or military service). {' '}
+                                    <em>Legal dependents of any age shall be considered part of their legal guardians' family.</em>
+                        </p>
+                    
+                        {/*<ul>
+                            <li>
+                                
                             </li>
                             <li>
                                 <p> A family consists of a couple and their dependents, or a single person and their dependents.
                                     Dependents are defined as children, grandchildren, great grandchildren, foster, adopted or step-children
                                     under the age of 23, who live in the same household
-                                    (or at a different address due to illness, education or military service.)
-                                    <br/>
-                                    <br/>
+                                    (or at a different address due to illness, education or military service). {' '}
                                     <em>Legal dependents of any age shall be considered part of their legal guardians' family.</em>
                                 </p>
                             </li>
@@ -114,12 +116,60 @@ export function Member () {
                                     you will be inducted into the Grange.
                                 </p>
                             </li>
-                        </ul>
+                        </ul>*/}
                         <div className="membership-application-buttons">
-                            <ThirdButton to="pdfs/application-forms/Family_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Apply <br/>Now</ThirdButton>
-                            <ThirdButton to="pdfs/application-forms/Family_Member_Application_Humboldt_Grange_501_Espanol.pdf" newTab>Applicar <br/>Ahora</ThirdButton>
+                            <ThirdButton to="pdfs/application-forms/Family_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Apply Now</ThirdButton>
+                        </div>
+                        <div className="membership-disclaimer">
+                            <p> OR download a PDF version {' '}
+                                <a href="pdfs/application-forms/Family_Member_Application_Humboldt_Grange_501_En.pdf" target="_blank" rel="norefferer" >here</a>. 
+                                <br/>
+                                Please email your filled out application to  {' '}
+                                <a href="mailto:info@humboldtgrange501.org">info@humboldtgrange501.org</a> {' '}
+                                or bring it in person!
+                            </p>
+                            <p className="spanish-disclaimer">¿Necesitas una versión en español? Descarga nuestra solicitud de membresía individual {' '}
+                                <a href="pdfs/application-forms/Family_Member_Application_Humboldt_Grange_501_Espanol.pdf" target="_blank" rel="norefferer">aquí</a>.
+                                Envía tu solicitud completa por correo electrónico a {' '}
+                                <a href="mailto:info@humboldtgrange501.org">info@humboldtgrange501.org</a> {' '}
+                                o tráela en persona.
+                            </p>
                         </div>
                     </div>
+
+                    <div className="membership-info-breakdown" id="associate-membership-info"> {/* Associate Membership Info */}
+                        <PrimaryButton to="/membership">Associate Membership</PrimaryButton>
+                        <h3 className="dues">Annual Dues: $40</h3>
+                        <p> Associate membership is open to individuals and businesses who are looking to support a
+                                    Grange in their Community. Associate members are Grange supporters and <em>cannot</em> vote in a
+                                    Grange meeting.
+                        </p>
+                        {/*<ul>
+                            <li>
+                                
+                            </li>
+                            <li>
+                                <p> To join, applications may be submitted to the Humboldt Grange #501.
+                                    The application must be signed by at least one current member of the Grange.
+                                </p>
+                            </li>
+                        </ul>*/}
+                        <div className="membership-application-buttons">
+                            <ThirdButton to="/sign-up-associate" newTab>Apply Now</ThirdButton>
+                        </div>
+                        <div className="membership-disclaimer">
+                            <p> OR download a PDF version {' '}
+                                <a href="pdfs/application-forms/Associate_Member_Application_Humboldt_Grange_501_En.pdf" target="_blank" rel="norefferer" >here</a>. 
+                                <br/>
+                                Please email your filled out application to  {' '}
+                                <a href="mailto:info@humboldtgrange501.org">info@humboldtgrange501.org</a> {' '}
+                                or bring it in person!
+                            </p>
+                        </div>
+                    </div>
+
+
+
                 </div>
 
                 <div className="junior-membership"> {/* Junior Membership Info */}

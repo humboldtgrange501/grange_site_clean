@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import supabase from '../SupabaseClient'
+import MemberTable from '../components/MemberTable';
+
 
 export function AdminDashboard() {
   const [session, setSession] = useState(null)
@@ -22,6 +24,8 @@ export function AdminDashboard() {
     <div>
       <h2>Welcome, {session.user.email}</h2>
       <p>Here is your future admin dashboard content.</p>
+      <MemberTable/>
+
     </div>
   )
 }

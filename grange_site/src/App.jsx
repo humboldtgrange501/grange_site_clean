@@ -13,6 +13,7 @@ import {Calendar} from './pages/Calendar.jsx';
 import { Layout } from './Layout.jsx';
 import { Login } from './pages/Login.jsx';
 import { AdminDashboard } from './pages/AdminDashboard.jsx';
+import  AssociateSignUp  from './sign_up_pages/AssociateSignUp.jsx';
 
 
 import { Scholarships } from './pages/Scholarships.jsx';
@@ -35,6 +36,8 @@ function App() {
           <Route path="/scholarships" element={<Scholarships/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
+          <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
+          <Route path="/sign-up-associate" element={<AssociateSignUp/>}/>
         </Route>
       </Routes>
     </Router>
