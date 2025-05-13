@@ -17,6 +17,8 @@ const AssociateSignUp = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [signature, setSignature] = useState('');
   const [retired, setRetired] = useState(false);
+  const [recommender_one, setRecommender1] = useState('');
+  const [recommender_two, setRecommender2] = useState('');
 
   const membershipType = 'associate'; 
 
@@ -48,8 +50,10 @@ const AssociateSignUp = () => {
             membership_type: membershipType,
             application_date: new Date().toISOString().split('T')[0],
             signature,
-            retired
-            // family_id: someValidId, <-- if your schema requires this
+            retired, 
+            recommender_one,
+            recommender_two
+            // family_id: someValidId, <-- if schema requires this
           },
         ]);
 
@@ -73,6 +77,8 @@ const AssociateSignUp = () => {
         setOccupation('');
         setSignature('');
         setMembershipConfirm(false);
+        setRecommender1('');
+        setRecommender2('');
       }
     } catch (err) {
       console.error('Unexpected error:', err);
@@ -122,7 +128,7 @@ const AssociateSignUp = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="dob">Date of Birth</label>
+          <label htmlFor="dob">Date of Birth<span className="asterisk">*</span></label>
           <input
             type="date"
             id="dob"
@@ -134,47 +140,45 @@ const AssociateSignUp = () => {
         </div>
 
         <div className="form-group">
-            <label>Sex</label>
-            <div>
-                <input
+          <label>Sex<span className="asterisk">*</span></label>
+          {['Male', 'Female', 'Prefer Not to Say'].map((option) => (
+            <div key={option}>
+              <input
                 type="radio"
-                id="male"
+                id={option}
                 name="sex"
-                value="Male"
-                checked={sex === 'Male'}
+                value={option}
+                checked={sex === option}
                 onChange={(e) => setSex(e.target.value)}
                 required
-                />
-                <label htmlFor="male">Male</label>
+              />
+              <label htmlFor={option}>{option}</label>
             </div>
-
-            <div>
-                <input
-                type="radio"
-                id="female"
-                name="sex"
-                value="Female"
-                checked={sex === 'Female'}
-                onChange={(e) => setSex(e.target.value)}
-                />
-                <label htmlFor="female">Female</label>
-            </div>
-
-            <div>
-                <input
-                type="radio"
-                id="other"
-                name="sex"
-                value="Other"
-                checked={sex === 'Other'}
-                onChange={(e) => setSex(e.target.value)}
-                />
-                <label htmlFor="other">Other</label>
-            </div>
+          ))}
         </div>
 
         <div className="form-group">
-          <label htmlFor="address">Street Address</label>
+          <label htmlFor="recommender_one">Recommended by 1 (Optional)</label>
+          <input
+            type="text"
+            id="recommender_one"
+            value={recommender_one}
+            onChange={(e) => setRecommender1(e.target.value)}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="recommender_two">Recommended by 2 (Optional)</label>
+          <input
+            type="text"
+            id="recommender_two"
+            value={recommender_two}
+            onChange={(e) => setRecommender2(e.target.value)}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="address">Street Address<span className="asterisk">*</span></label>
           <input
             type="text"
             id="address"
@@ -185,7 +189,7 @@ const AssociateSignUp = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="city">City</label>
+          <label htmlFor="city">City<span className="asterisk">*</span></label>
           <input
             type="text"
             id="city"
@@ -196,7 +200,7 @@ const AssociateSignUp = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="state">State</label>
+          <label htmlFor="state">State<span className="asterisk">*</span></label>
           <input
             type="text"
             id="state"
@@ -207,7 +211,7 @@ const AssociateSignUp = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="zipcode">Zip Code</label>
+          <label htmlFor="zipcode">Zip Code<span className="asterisk">*</span></label>
           <input
             type="text"
             id="zipcode"
@@ -218,7 +222,7 @@ const AssociateSignUp = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="email">Email Address</label>
+          <label htmlFor="email">Email Address<span className="asterisk">*</span></label>
           <input
             type="email"
             id="email"
@@ -229,7 +233,7 @@ const AssociateSignUp = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="phone">Phone Number</label>
+          <label htmlFor="phone">Phone Number<span className="asterisk">*</span></label>
           <input
             type="tel"
             id="phone"
@@ -240,7 +244,7 @@ const AssociateSignUp = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="occupation">Occupation (if retired, please list occupation you retired from)</label>
+          <label htmlFor="occupation">Occupation (if retired, please list occupation you retired from)<span className="asterisk">*</span></label>
           <input
             type="text"
             id="occupation"
@@ -251,7 +255,7 @@ const AssociateSignUp = () => {
         </div>
 
         <div className="form-group">
-          <label>Are you retired?</label>
+          <label>Are you retired?<span className="asterisk">*</span></label>
           <div>
             <input
               type="radio"
@@ -279,7 +283,7 @@ const AssociateSignUp = () => {
 
 
         <div className="form-group">
-        <label htmlFor="signature">Signature (Please type your full name to sign this application)</label>
+        <label htmlFor="signature">Signature (Please type your full name to sign this application)<span className="asterisk">*</span></label>
         <input
             type="text"
             id="signature"

@@ -17,6 +17,8 @@ const IndividualSignUp = () => {
   const [membershipConfirm, setMembershipConfirm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [retired, setRetired] = useState(false);
+  const [recommender_one, setRecommender1] = useState('');
+  const [recommender_two, setRecommender2] = useState('');
 
   const membershipType = 'individual';
 
@@ -49,6 +51,8 @@ const IndividualSignUp = () => {
             membership_type: membershipType,
             application_date: new Date().toISOString().split('T')[0],
             signature,
+            recommender_one,
+            recommender_two
           },
         ]);
 
@@ -73,6 +77,8 @@ const IndividualSignUp = () => {
         setRetired('');
         setSignature('');
         setMembershipConfirm(false);
+        setRecommender1('');
+        setRecommender2('');
       }
     } catch (err) {
       console.error('Unexpected error:', err);
@@ -125,13 +131,13 @@ const IndividualSignUp = () => {
 
         {/* Shared fields */}
         <div className="form-group">
-          <label>Date of Birth</label>
-          <input type="date" value={dob} onChange={(e) => setDob(e.target.value)} required />
+          <label>Date of Birth<span className="asterisk">*</span></label>
+          <input type="date" value={dob} onChange={(e) => setDob(e.target.value)} required style={{marginLeft: '0.5rem'}} />
         </div>
 
         <div className="form-group">
-          <label>Sex</label>
-          {['Male', 'Female', 'Other'].map((option) => (
+          <label>Sex<span className="asterisk">*</span></label>
+          {['Male', 'Female', 'Prefer Not to Say'].map((option) => (
             <div key={option}>
               <input
                 type="radio"
@@ -148,36 +154,56 @@ const IndividualSignUp = () => {
         </div>
 
         <div className="form-group">
-          <label>Street Address</label>
+          <label htmlFor="recommender_one">Recommended by 1 (Optional)</label>
+          <input
+            type="text"
+            id="recommender_one"
+            value={recommender_one}
+            onChange={(e) => setRecommender1(e.target.value)}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="recommender_two">Recommended by 2 (Optional)</label>
+          <input
+            type="text"
+            id="recommender_two"
+            value={recommender_two}
+            onChange={(e) => setRecommender2(e.target.value)}
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Street Address<span className="asterisk">*</span></label>
           <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
         </div>
         <div className="form-group">
-          <label>City</label>
+          <label>City<span className="asterisk">*</span></label>
           <input type="text" value={city} onChange={(e) => setCity(e.target.value)} required />
         </div>
         <div className="form-group">
-          <label>State</label>
+          <label>State<span className="asterisk">*</span></label>
           <input type="text" value={state} onChange={(e) => setState(e.target.value)} required />
         </div>
         <div className="form-group">
-          <label>Zip Code</label>
+          <label>Zip Code<span className="asterisk">*</span></label>
           <input type="text" value={zipcode} onChange={(e) => setZipcode(e.target.value)} required />
         </div>
         <div className="form-group">
-          <label>Email</label>
+          <label>Email<span className="asterisk">*</span></label>
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
         <div className="form-group">
-          <label>Phone</label>
+          <label>Phone<span className="asterisk">*</span></label>
           <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required />
         </div>
         <div className="form-group">
-          <label>Occupation</label>
+          <label>Occupation<span className="asterisk">*</span></label>
           <input type="text" value={occupation} onChange={(e) => setOccupation(e.target.value)} required />
         </div>
 
         <div className="form-group">
-          <label>Are you retired?</label>
+          <label>Are you retired?<span className="asterisk">*</span></label>
           <div>
             <input
               type="radio"
@@ -204,7 +230,7 @@ const IndividualSignUp = () => {
         </div>
 
         <div className="form-group">
-          <label>Signature</label>
+          <label>Signature (Please type your full name)<span className="asterisk">*</span></label>
           <input type="text" value={signature} onChange={(e) => setSignature(e.target.value)} required />
         </div>
 
