@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import supabase from '../SupabaseClient';
 import './SignUp.css';
+import { useNavigate } from 'react-router-dom';
 
 const FamilySignUp = () => {
   const [familyName, setFamilyName] = useState('');
@@ -17,6 +18,8 @@ const FamilySignUp = () => {
   ]);
   const [membershipConfirm, setMembershipConfirm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleMemberChange = (index, field, value) => {
     const updated = [...members];
@@ -92,6 +95,7 @@ const FamilySignUp = () => {
       const { error: membersError } = await supabase.from('members').insert(memberRows);
       if (membersError) throw membersError;
 
+      navigate('/sign-up-confirmation?type=family');
       alert('Thank you for applying for family membership!');
       // Reset form
       setFamilyName('');

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import supabase from '../SupabaseClient';
 import './SignUp.css';
+import { useNavigate } from 'react-router-dom';
 
 const JuniorSignUp = () => {
   const [name, setName] = useState('');
@@ -18,6 +19,8 @@ const JuniorSignUp = () => {
   const [signature, setSignature] = useState('');
   const [membershipConfirm, setMembershipConfirm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -58,6 +61,7 @@ const JuniorSignUp = () => {
         console.error('Submission error:', error);
         alert('Something went wrong. Please try again.');
       } else {
+        navigate('/sign-up-confirmation?type=junior');
         alert('Thank you for applying!');
         // Clear form
         setName('');

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import supabase from '../SupabaseClient';
 import './SignUp.css';
+import { useNavigate } from 'react-router-dom';
 
 const AssociateSignUp = () => {
   const [name, setName] = useState('');
@@ -21,6 +22,7 @@ const AssociateSignUp = () => {
   const [recommender_two, setRecommender2] = useState('');
 
   const membershipType = 'associate'; 
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -63,6 +65,8 @@ const AssociateSignUp = () => {
         console.error('Member insert error:', memberError);
         alert('Something went wrong saving your information.');
       } else {
+
+        navigate('/sign-up-confirmation?type=associate');
         alert('Thank you for signing up!');
         // Reset form
         setName('');

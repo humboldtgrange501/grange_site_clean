@@ -66,9 +66,13 @@ const ThankYouPage = () => {
         </ul>
       </div>
 
-      <p className="p2">
-         Please bring your application fee and dues of <strong className="fee">{fee}</strong> in cash or check. We can't wait to meet you!
-      </p>
+      {fee === 'FREE' ? (
+            <p className="p2">We can't wait to meet you!</p>
+        ) : (
+            <p className="p2">
+                Please bring your application fee and dues of <strong className="fee">{fee}</strong> in cash or check. We can't wait to meet you!
+            </p>
+        )}
 
       <div className="confirmation-home-btn">
         <PrimaryButton to="/" >Back to Home</PrimaryButton>
