@@ -16,10 +16,18 @@ export function History () {
                 <h1>Our History & Heritage</h1>
 
                 <p className="p1">
-                Since its founding in 1867, the Grange has served as a cornerstone for rural life in America.
-                While the Grange advocates for agricultural and community interests, its roots as a fraternal
-                organization also include a rich heritage of ritual, symbolism, and life lessons passed through the generations.
+                    The Humboldt Grange #501, founded in 1933, has long served as a cornerstone of community engagement 
+                    and rural advocacy in Humboldt County. As part of the National Grange of the Order of 
+                    Patrons of Husbandry&mdash;a fraternal organization founded in 1867 to support agricultural communities&mdash;the
+                    Humboldt Grange #501 continues this legacy by fostering local connection and civic involvement.
                 </p>
+
+                <div className="history-photos">
+                    <img src="../images/historical/old_grange.jpg" alt="historical grange exterior"/>
+                    <img src="../images/historical/old_grange_dance.jpg" alt="historical grange event"/>
+                    <img src="../images/historical/old_grange_store.jpg" alt="historical grange storefront"/>
+                    
+                </div>
 
                 
 

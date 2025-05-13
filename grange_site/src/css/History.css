@@ -11,6 +11,7 @@
   .history-div {
     margin: 0 auto;
     padding: 1rem;
+    width: 90%;
     text-align: center;
   }
 
@@ -28,4 +29,19 @@
   
   .degrees-h2 {
     margin-bottom: 0;
+  }
+
+
+  .history-photos {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+  }
+
+  .history-photos img {
+    width: 100%;
+    max-width: 250px; 
+    border-radius: 5px;
+    object-fit: cover;
   }
