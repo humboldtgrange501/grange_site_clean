@@ -16,6 +16,8 @@ import { AdminDashboard } from './pages/AdminDashboard.jsx';
 import  AssociateSignUp  from './sign_up_pages/AssociateSignUp.jsx';
 import  IndividualSignUp  from './sign_up_pages/IndividualSignUp.jsx';
 import  FamilySignUp  from './sign_up_pages/FamilySignUp.jsx';
+import  JuniorSignUp  from './sign_up_pages/JuniorSignUp.jsx';
+import  Confirmation  from './sign_up_pages/Confirmation.jsx';
 
 import { Scholarships } from './pages/Scholarships.jsx';
 
@@ -41,6 +43,8 @@ function App() {
           <Route path="/sign-up-associate" element={<AssociateSignUp/>}/>
           <Route path="/sign-up-individual" element={<IndividualSignUp/>}/>
           <Route path="/sign-up-family" element={<FamilySignUp/>}/>
+          <Route path="/sign-up-junior" element={<JuniorSignUp/>}/>
+          <Route path="/sign-up-confirmation" element={<Confirmation/>}/>
         </Route>
       </Routes>
     </Router>

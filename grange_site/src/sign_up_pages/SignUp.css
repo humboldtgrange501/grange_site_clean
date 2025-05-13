@@ -116,3 +116,27 @@ input[type="date"] {
   height: 2.5rem;
   font-size: 1rem;
 }
+
+.meeting-details {
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.thankyou-container {
+  text-align: center;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+.fee {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+}
+
+.confirmation-home-btn {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}

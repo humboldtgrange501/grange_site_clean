@@ -23,7 +23,6 @@ export function AdminDashboard() {
   return (
     <div>
       <h2>Welcome, {session.user.email}</h2>
-      <p>Here is your future admin dashboard content.</p>
       <MemberTable/>
 
     </div>

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import supabase from '../SupabaseClient';
 import './SignUp.css';
-import { useNavigate } from 'react-router-dom';
 
-const IndividualSignUp = () => {
+const JuniorSignUp = () => {
   const [name, setName] = useState('');
   const [dob, setDob] = useState('');
   const [sex, setSex] = useState('');
@@ -13,17 +12,12 @@ const IndividualSignUp = () => {
   const [zipcode, setZipcode] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [occupation, setOccupation] = useState('');
+  const [parentName, setParentName] = useState('');
+  const [parentEmail, setParentEmail] = useState('');
+  const [parentPhone, setParentPhone] = useState('');
   const [signature, setSignature] = useState('');
   const [membershipConfirm, setMembershipConfirm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [retired, setRetired] = useState(false);
-  const [recommender_one, setRecommender1] = useState('');
-  const [recommender_two, setRecommender2] = useState('');
-
-  const membershipType = 'individual';
-  const navigate = useNavigate();
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -49,13 +43,12 @@ const IndividualSignUp = () => {
             zipcode,
             email,
             phone,
-            occupation,
-            retired,
-            membership_type: membershipType,
+            parent_name: parentName,
+            parent_email: parentEmail,
+            parent_phone: parentPhone,
+            membership_type: 'junior',
             application_date: new Date().toISOString().split('T')[0],
             signature,
-            recommender_one,
-            recommender_two
           },
         ]);
 
@@ -65,7 +58,6 @@ const IndividualSignUp = () => {
         console.error('Submission error:', error);
         alert('Something went wrong. Please try again.');
       } else {
-        navigate('/sign-up-confirmation?type=individual');
         alert('Thank you for applying!');
         // Clear form
         setName('');
@@ -77,12 +69,11 @@ const IndividualSignUp = () => {
         setZipcode('');
         setEmail('');
         setPhone('');
-        setOccupation('');
-        setRetired('');
+        setParentName('');
+        setParentEmail('');
+        setParentPhone('');
         setSignature('');
         setMembershipConfirm(false);
-        setRecommender1('');
-        setRecommender2('');
       }
     } catch (err) {
       console.error('Unexpected error:', err);
@@ -93,30 +84,61 @@ const IndividualSignUp = () => {
 
   return (
     <div className="signup-container">
-      <h2>Individual Membership Application</h2>
-      <p>Please bring $37 (check/cash) to cover your application fee ($5) and dues ($32) at our next Grange meeting. 
-        To view our meeting times, please see our calendar {' '}
-        <a href="/calendar" target="_blank" rel="norefferer">here</a>.</p>
+      <h2>Junior Membership Application</h2>
+      <p>Please complete this application to apply for Junior Membership. Please note that a parent or legal guardian must complete the parent section below.</p>
 
       <form onSubmit={handleSubmit} className="signup-form">
-      <div className="form-group">
-        <p>To the officers and members of the Humboldt Grange No. 501, I,</p>
-            <input
-                type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Full Name"
-                required
-            />
-        <p>
-          respectfully petition to be an associate member in your Grange. In presenting this application,
-          I am influenced by no motive other than a desire to support the principles of the Grange, its role
-          in my community and state, and receiving in return such benefits and advantages as may accrue to all
-          who are Associate members in the Grange. I promise a faithful compliance with the Laws of this Grange,
-          the State Grange of California, and the National Grange. I have not applied for and been rejected for 
-          membership in any other Grange within the past six months.
-        </p>
+        <div className="form-group">
+          <p>To the officers and members of the Humboldt Grange No. 501, I,</p>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Full Name"
+            required
+          />
+          <p>respectfully petition to be initiated and enrolled as a Junior 1+ member in your Grange. 
+             I promise a faithful compliance with the Junior Grange Pledge and will endeavor to obey 
+             the adult leaders of my Grange.</p>
+        </div>
+
+        <div className="form-group">
+          <label>Signature of Applicant (Please type your full name)<span className="asterisk">*</span></label>
+          <input type="text" value={signature} onChange={(e) => setSignature(e.target.value)} required />
+        </div>
+
+
+
+        {/* Parent/Guardian Information */}
+        <div className="form-group">
+          <label>Parent/Guardian Full Name<span className="asterisk">*</span></label>
+          <input
+            type="text"
+            value={parentName}
+            onChange={(e) => setParentName(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Parent/Guardian Email<span className="asterisk">*</span></label>
+          <input
+            type="email"
+            value={parentEmail}
+            onChange={(e) => setParentEmail(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Parent/Guardian Phone<span className="asterisk">*</span></label>
+          <input
+            type="tel"
+            value={parentPhone}
+            onChange={(e) => setParentPhone(e.target.value)}
+            required
+          />
         </div>
 
         {/* Confirmation Checkbox */}
@@ -129,18 +151,17 @@ const IndividualSignUp = () => {
             required
           />
           <label htmlFor="membership_confirm">
-            I confirm I have read and agree to the above statement and wish to be considered for individual membership.
+            As parent (or guardian), of the above name applicant, I give my permission for them to join this Grange, as a Junior member . 
           </label>
         </div>
 
-        {/* Shared fields */}
         <div className="form-group">
-          <label>Date of Birth<span className="asterisk">*</span></label>
+          <label>Applicant's Date of Birth<span className="asterisk">*</span></label>
           <input type="date" value={dob} onChange={(e) => setDob(e.target.value)} required style={{marginLeft: '0.5rem'}} />
         </div>
 
         <div className="form-group">
-          <label>Sex<span className="asterisk">*</span></label>
+          <label>Sex of Applicant<span className="asterisk">*</span></label>
           {['Male', 'Female', 'Prefer Not to Say'].map((option) => (
             <div key={option}>
               <input
@@ -157,26 +178,7 @@ const IndividualSignUp = () => {
           ))}
         </div>
 
-        <div className="form-group">
-          <label htmlFor="recommender_one">Recommended by 1 (Optional)</label>
-          <input
-            type="text"
-            id="recommender_one"
-            value={recommender_one}
-            onChange={(e) => setRecommender1(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="recommender_two">Recommended by 2 (Optional)</label>
-          <input
-            type="text"
-            id="recommender_two"
-            value={recommender_two}
-            onChange={(e) => setRecommender2(e.target.value)}
-          />
-        </div>
-
+        {/* Address fields */}
         <div className="form-group">
           <label>Street Address<span className="asterisk">*</span></label>
           <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
@@ -193,6 +195,8 @@ const IndividualSignUp = () => {
           <label>Zip Code<span className="asterisk">*</span></label>
           <input type="text" value={zipcode} onChange={(e) => setZipcode(e.target.value)} required />
         </div>
+
+        {/* Contact Information */}
         <div className="form-group">
           <label>Email<span className="asterisk">*</span></label>
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
@@ -201,49 +205,15 @@ const IndividualSignUp = () => {
           <label>Phone<span className="asterisk">*</span></label>
           <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required />
         </div>
-        <div className="form-group">
-          <label>Occupation<span className="asterisk">*</span></label>
-          <input type="text" value={occupation} onChange={(e) => setOccupation(e.target.value)} required />
-        </div>
 
-        <div className="form-group">
-          <label>Are you retired?<span className="asterisk">*</span></label>
-          <div>
-            <input
-              type="radio"
-              id="retiredYes"
-              name="retired"
-              value="Yes"
-              checked={retired === 'Yes'}
-              onChange={(e) => setRetired(e.target.value)}
-              required
-            />
-            <label htmlFor="retiredYes">Yes</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="retiredNo"
-              name="retired"
-              value="No"
-              checked={retired === 'No'}
-              onChange={(e) => setRetired(e.target.value)}
-            />
-            <label htmlFor="retiredNo">No</label>
-          </div>
-        </div>
-
-        <div className="form-group">
-          <label>Signature (Please type your full name)<span className="asterisk">*</span></label>
-          <input type="text" value={signature} onChange={(e) => setSignature(e.target.value)} required />
-        </div>
+        
 
         <button type="submit" disabled={isSubmitting} className="submit-button" style={{ marginTop: '1.5rem' }}>
-          {isSubmitting ? 'Submitting...' : 'Submit Individual Application'}
+          {isSubmitting ? 'Submitting...' : 'Submit Junior Application'}
         </button>
       </form>
     </div>
   );
 };
 
-export default IndividualSignUp;
+export default JuniorSignUp;

@@ -1,11 +1,10 @@
-/* Member table container */
+
 .member-table-container {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
   }
-  
-  /* Table title */
+
   .table-title {
     font-size: 24px;
     font-weight: bold;
@@ -13,7 +12,7 @@
     margin-bottom: 20px;
   }
   
-  /* Styling the table */
+
   .member-table {
     width: 100%;
     border-collapse: collapse;
@@ -51,3 +50,8 @@
     background-color: #0056b3;
   }
   
+.family-name {
+  text-align: left;
+}
+
+

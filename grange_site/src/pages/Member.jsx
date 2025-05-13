@@ -173,7 +173,7 @@ export function Member () {
                 </div>
 
                 <div className="junior-membership"> {/* Junior Membership Info */}
-                        <PrimaryButton to="pdfs/application-forms/Junior_Member_Application_Humboldt_Grange_501.pdf" newTab>Junior Grange Membership &mdash; for ages 5 to 14</PrimaryButton>
+                        <PrimaryButton to="/membership" newTab>Junior Grange Membership &mdash; for ages 5 to 14</PrimaryButton>
                         <h3 className="dues">Annual Dues: FREE</h3>
                         <p> Junior Grange membership is open to any child at least 5 years 
                             old and not be older than 14 years (membership terminates at the 
@@ -184,7 +184,7 @@ export function Member () {
                             the application, and get ready to have fun in the Junior Grange!
                         </p>
                         <div className="membership-application-buttons">
-                            <ThirdButton to="pdfs/application-forms/Junior_Member_Application_Humboldt_Grange_501.pdf" newTab>Apply as a Junior Grange Member Today!</ThirdButton>
+                            <ThirdButton to="/sign-up-junior" newTab>Apply as a Junior Grange Member Today!</ThirdButton>
                         </div>
                 </div>
 
