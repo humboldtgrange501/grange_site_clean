@@ -62,7 +62,6 @@ const JuniorSignUp = () => {
         alert('Something went wrong. Please try again.');
       } else {
         navigate('/sign-up-confirmation?type=junior');
-        alert('Thank you for applying!');
         // Clear form
         setName('');
         setDob('');

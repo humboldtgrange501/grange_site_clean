@@ -66,7 +66,6 @@ const IndividualSignUp = () => {
         alert('Something went wrong. Please try again.');
       } else {
         navigate('/sign-up-confirmation?type=individual');
-        alert('Thank you for applying!');
         // Clear form
         setName('');
         setDob('');

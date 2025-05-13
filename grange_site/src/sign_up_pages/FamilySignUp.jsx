@@ -96,7 +96,6 @@ const FamilySignUp = () => {
       if (membersError) throw membersError;
 
       navigate('/sign-up-confirmation?type=family');
-      alert('Thank you for applying for family membership!');
       // Reset form
       setFamilyName('');
       setAddress('');

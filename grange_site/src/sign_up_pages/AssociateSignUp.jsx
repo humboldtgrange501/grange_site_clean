@@ -67,7 +67,6 @@ const AssociateSignUp = () => {
       } else {
 
         navigate('/sign-up-confirmation?type=associate');
-        alert('Thank you for signing up!');
         // Reset form
         setName('');
         setDob('');
