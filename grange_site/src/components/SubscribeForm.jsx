@@ -12,29 +12,29 @@ export default function SubscribeForm() {
     setStatus('loading');
   
     try {
-     /* // Step 1: Send email via Mailgun)
-      const res = await fetch('http://localhost:5000/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
+    const { error } = await supabase
+      .from('subscribers')
+      .insert([{ email }]);
 
-      if (!res.ok) throw new Error('Request failed');*/
-      
-      // Step 2: Log the email in Supabase
-      const { error } = await supabase
-        .from('subscribers') 
-        .insert([{ email }]);  // Add email to database
-
-      if (error) throw error;
-
+    if (error) {
+      // Check if it's a duplicate entry error
+      if (
+        error.code === '23505' || // PostgreSQL duplicate key error code
+        error.message.includes('duplicate key')
+      ) {
+        setStatus('duplicate');
+      } else {
+        throw error;
+      }
+    } else {
       setEmail('');
       setStatus('success');
-    } catch (err) {
-      console.error(err);
-      setStatus('error');
     }
-  };
+  } catch (err) {
+    console.error(err);
+    setStatus('error');
+  }
+};
 
   return (
     <form onSubmit={handleSubmit} className="subscribe-form">
@@ -52,6 +52,7 @@ export default function SubscribeForm() {
         {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
       </button>
       {status === 'success' && <p style={{ color: '#333' }}>You're subscribed!</p>}
+      {status === 'duplicate' && <p style={{ color: '#333' }}>You already subscribed with this email!</p>}
       {status === 'error' && <p style={{ color: '#333' }}>Something went wrong.</p>}
     </form>
   );

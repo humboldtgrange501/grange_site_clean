@@ -23,12 +23,12 @@ export function Member () {
                 <br/>Explore the different types of membership below:
                 </p>
 
-                <div className="member-steps">
+                {/*<div className="member-steps">
                     <h2> 1. SELECT</h2>
                     <h2> 2. SUBMIT</h2>
                     <h2>3. ATTEND</h2>
                     <h2>4. ENJOY</h2>
-                </div>
+                </div>*/}
                
                 <div className="membership-options"> 
 
@@ -80,7 +80,7 @@ export function Member () {
                     
 
                     <div className="membership-info-breakdown"> {/* Family Membership Info */}
-                        <PrimaryButton to="pdfs/application-forms/Family_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Family Membership</PrimaryButton>
+                        <PrimaryButton to="/membership" newTab>Family Membership</PrimaryButton>
                         <h3 className="dues">Annual Dues: $64</h3>
                         <p> The Grange offers a family membership program open to any person of good character
                                     who has a desire to serve their community and be part of the larger fraternal Grange family.
@@ -190,8 +190,9 @@ export function Member () {
 
                 
 
-                <h2>Once you've filled out the application <a href="mailto:humboldt.grange.501@gmail.com" className="mailto">email</a> it to us or bring to a meeting.</h2>
-               
+                <h3>If you choose to download the application PDF, please <a href="mailto:humboldt.grange.501@gmail.com" className="mailto">email</a> it to us or bring to one of our upcoming meetings.</h3>
+                <h3>Si eliges descargar el PDF de la solicitud, por favor <a href="mailto:humboldt.grange.501@gmail.com" className="mailto">envíanoslo por correo electrónico</a> o tráelo a una de nuestras próximas reuniones.</h3>
+
                 <h2 className="monthly-meeting-h2">Monthly Grange Meetings</h2>
                 <p className="p2">
                     We meet in-person on the second Thursday of the month from 6:30 to 8:30pm. 
