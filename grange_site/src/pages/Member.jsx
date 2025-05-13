@@ -159,7 +159,7 @@ export function Member () {
                         </div>
                         <div className="membership-disclaimer">
                             <p> OR download a PDF version {' '}
-                                <a href="pdfs/application-forms/Associate_Member_Application_Humboldt_Grange_501_En.pdf" target="_blank" rel="norefferer" >here</a>. 
+                                <a href="pdfs/application-forms/Associate_Member_Application_Humboldt_Grange_501.pdf" target="_blank" rel="norefferer" >here</a>. 
                                 <br/>
                                 Please email your filled out application to  {' '}
                                 <a href="mailto:info@humboldtgrange501.org">info@humboldtgrange501.org</a> {' '}
@@ -173,8 +173,8 @@ export function Member () {
                 </div>
 
                 <div className="junior-membership"> {/* Junior Membership Info */}
-                        <PrimaryButton to="pdfs/application-forms/Junior_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Junior Grange Membership &mdash; for ages 5 to 14</PrimaryButton>
-                        <h3 className="dues">Annual Dues:</h3>
+                        <PrimaryButton to="pdfs/application-forms/Junior_Member_Application_Humboldt_Grange_501.pdf" newTab>Junior Grange Membership &mdash; for ages 5 to 14</PrimaryButton>
+                        <h3 className="dues">Annual Dues: FREE</h3>
                         <p> Junior Grange membership is open to any child at least 5 years 
                             old and not be older than 14 years (membership terminates at the 
                             end of the year when the member reaches 14).
@@ -184,7 +184,7 @@ export function Member () {
                             the application, and get ready to have fun in the Junior Grange!
                         </p>
                         <div className="membership-application-buttons">
-                            <ThirdButton to="pdfs/application-forms/Junior_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Apply as a Junior Grange Member Today!</ThirdButton>
+                            <ThirdButton to="pdfs/application-forms/Junior_Member_Application_Humboldt_Grange_501.pdf" newTab>Apply as a Junior Grange Member Today!</ThirdButton>
                         </div>
                 </div>
 
