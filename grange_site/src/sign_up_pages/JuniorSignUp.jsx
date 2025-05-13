@@ -3,6 +3,12 @@ import supabase from '../SupabaseClient';
 import './SignUp.css';
 import { useNavigate } from 'react-router-dom';
 
+function getFiveYearsAgoDate() {
+  const today = new Date();
+  today.setFullYear(today.getFullYear() - 5);
+  return today.toISOString().split('T')[0];
+}
+
 const JuniorSignUp = () => {
   const [name, setName] = useState('');
   const [dob, setDob] = useState('');
@@ -19,6 +25,8 @@ const JuniorSignUp = () => {
   const [signature, setSignature] = useState('');
   const [membershipConfirm, setMembershipConfirm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  
 
   const navigate = useNavigate();
 
@@ -47,8 +55,6 @@ const JuniorSignUp = () => {
             email,
             phone,
             parent_name: parentName,
-            parent_email: parentEmail,
-            parent_phone: parentPhone,
             membership_type: 'junior',
             application_date: new Date().toISOString().split('T')[0],
             signature,
@@ -101,7 +107,7 @@ const JuniorSignUp = () => {
             placeholder="Full Name"
             required
           />
-          <p>respectfully petition to be initiated and enrolled as a Junior 1+ member in your Grange. 
+          <p>respectfully petition to be initiated and enrolled as a Junior member in your Grange. 
              I promise a faithful compliance with the Junior Grange Pledge and will endeavor to obey 
              the adult leaders of my Grange.</p>
         </div>
@@ -160,7 +166,12 @@ const JuniorSignUp = () => {
 
         <div className="form-group">
           <label>Applicant's Date of Birth<span className="asterisk">*</span></label>
-          <input type="date" value={dob} onChange={(e) => setDob(e.target.value)} required style={{marginLeft: '0.5rem'}} />
+          <input type="date" 
+                 value={dob} 
+                 onChange={(e) => setDob(e.target.value)} 
+                 required 
+                 style={{marginLeft: '0.5rem'}} 
+                 max={getFiveYearsAgoDate()}/>
         </div>
 
         <div className="form-group">
@@ -198,18 +209,6 @@ const JuniorSignUp = () => {
           <label>Zip Code<span className="asterisk">*</span></label>
           <input type="text" value={zipcode} onChange={(e) => setZipcode(e.target.value)} required />
         </div>
-
-        {/* Contact Information */}
-        <div className="form-group">
-          <label>Email<span className="asterisk">*</span></label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </div>
-        <div className="form-group">
-          <label>Phone<span className="asterisk">*</span></label>
-          <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required />
-        </div>
-
-        
 
         <button type="submit" disabled={isSubmitting} className="submit-button" style={{ marginTop: '1.5rem' }}>
           {isSubmitting ? 'Submitting...' : 'Submit Junior Application'}

@@ -11,4 +11,21 @@
   .history-div {
     margin: 0 auto;
     padding: 1rem;
+    text-align: center;
+  }
+
+  .degrees-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .thirdbtn-a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .degrees-h2 {
+    margin-bottom: 0;
   }
