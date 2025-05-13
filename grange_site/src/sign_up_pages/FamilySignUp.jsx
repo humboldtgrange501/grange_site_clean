@@ -3,28 +3,35 @@ import supabase from '../SupabaseClient';
 import './SignUp.css';
 
 const FamilySignUp = () => {
-  const [name, setName] = useState('');
-  const [dob, setDob] = useState('');
-  const [sex, setSex] = useState('');
+  const [familyName, setFamilyName] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [zipcode, setZipcode] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [occupation, setOccupation] = useState('');
-  const [signature, setSignature] = useState('');
-  const [membershipConfirm, setMembershipConfirm] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [retired, setRetired] = useState(false);
   const [recommender_one, setRecommender1] = useState('');
   const [recommender_two, setRecommender2] = useState('');
+  const [members, setMembers] = useState([
+    { full_name: '', dob: '', sex: '', occupation: '' },
+  ]);
+  const [membershipConfirm, setMembershipConfirm] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const membershipType = 'individual';
+  const handleMemberChange = (index, field, value) => {
+    const updated = [...members];
+    updated[index][field] = value;
+    setMembers(updated);
+  };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const addMember = () => {
+    if (members.length < 6) {
+      setMembers([...members, { full_name: '', dob: '', sex: '', occupation: '' }]);
+    }
+  };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (!membershipConfirm) {
       alert('Please confirm your agreement before submitting.');
       return;
@@ -33,87 +40,105 @@ const FamilySignUp = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
-        .from('members')
-        .insert([
-          {
-            full_name: name,
-            dob,
-            sex,
-            address,
-            city,
-            state,
-            zipcode,
-            email,
-            phone,
-            occupation,
-            retired,
-            membership_type: membershipType,
-            application_date: new Date().toISOString().split('T')[0],
-            signature,
-            recommender_one,
-            recommender_two
-          },
-        ]);
+      // 1. Create family
+      const { data: familyData, error: familyError } = await supabase
+        .from('families')
+        .insert([{ family_name: familyName }])
+        .select()
+        .single();
 
-      setIsSubmitting(false);
-
-      if (error) {
-        console.error('Submission error:', error);
-        alert('Something went wrong. Please try again.');
-      } else {
-        alert('Thank you for applying!');
-        // Clear form
-        setName('');
-        setDob('');
-        setSex('');
-        setAddress('');
-        setCity('');
-        setState('');
-        setZipcode('');
-        setEmail('');
-        setPhone('');
-        setOccupation('');
-        setRetired('');
-        setSignature('');
-        setMembershipConfirm(false);
-        setRecommender1('');
-        setRecommender2('');
+      if (familyError || !familyData) {
+        throw familyError || new Error('Failed to create family record');
       }
+
+      const family_id = familyData.id;
+
+      // 2. Build member records with appropriate membership_type
+      const memberRows = members.map((member, index) => {
+        const birthDate = new Date(member.dob);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const mDiff = today.getMonth() - birthDate.getMonth();
+        if (mDiff < 0 || (mDiff === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+        }
+
+        let membership_type = 'family_member';
+        if (index === 0) {
+          membership_type = 'family_head';
+        } else if (age >= 5 && age <= 14) {
+          membership_type = 'junior';
+        }
+
+        return {
+          full_name: member.full_name,
+          dob: member.dob,
+          sex: member.sex,
+          occupation: member.occupation || null,
+          email: index === 0 ? email : null,
+          phone: index === 0 ? phone : null,
+          address,
+          city,
+          state,
+          zipcode,
+          membership_type,
+          family_id,
+          application_date: new Date().toISOString().split('T')[0],
+          recommender_one: index === 0 ? recommender_one : null,
+          recommender_two: index === 0 ? recommender_one : null,
+        };
+      });
+
+      const { error: membersError } = await supabase.from('members').insert(memberRows);
+      if (membersError) throw membersError;
+
+      alert('Thank you for applying for family membership!');
+      // Reset form
+      setFamilyName('');
+      setAddress('');
+      setCity('');
+      setState('');
+      setZipcode('');
+      setEmail('');
+      setPhone('');
+      setRecommender1('');
+      setRecommender2('');
+      setMembers([{ full_name: '', dob: '', sex: '', occupation: '' }]);
+      setMembershipConfirm(false);
     } catch (err) {
-      console.error('Unexpected error:', err);
-      alert('An unexpected error occurred.');
+      console.error('Submission error:', err);
+      alert('Something went wrong. Please try again.');
+    } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
     <div className="signup-container">
-      <h2>Individual Membership Application</h2>
-      <p>Please bring $37 (check/cash) to cover your application fee ($5) and dues ($32) at our next Grange meeting. 
-        To view our meeting times, please see our calendar {' '}
-        <a href="/calendar" target="_blank" rel="norefferer">here</a>.</p>
-
+      <h2>Family Membership Application</h2>
+      
       <form onSubmit={handleSubmit} className="signup-form">
       <div className="form-group">
-        <p>To the officers and members of the Humboldt Grange No. 501, I,</p>
+        <p>We the</p>
             <input
                 type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Full Name"
+                id="familyName"
+                value={familyName}
+                onChange={(e) => setFamilyName(e.target.value)}
+                placeholder="Your Family Name"
                 required
             />
         <p>
-          respectfully petition to be an associate member in your Grange. In presenting this application,
-          I am influenced by no motive other than a desire to support the principles of the Grange, its role
-          in my community and state, and receiving in return such benefits and advantages as may accrue to all
-          who are Associate members in the Grange. I promise a faithful compliance with the Laws of this Grange,
-          the State Grange of California, and the National Grange. I have not applied for and been rejected for 
-          membership in any other Grange within the past six months.
+            family respectfully petition to be initiated and enrolled as a member in your Grange. 
+            In presenting this application, We are influenced by no motive other than a desire to
+            unite with others in elevating and advancing the interest of my community through the principles of the Grange and
+            receiving in return such benefits and advantages as may accrue to all who belong to the Grange. We promise a
+            faithful compliance with the By-Laws of this Grange, the By-Laws of the State Grange of California and the
+            Constitution and By-Laws of the National Grange. We have not applied for and been rejected for membership in
+            any other Grange within the past six months.
         </p>
         </div>
+
 
         {/* Confirmation Checkbox */}
         <div className="form-group">
@@ -125,52 +150,8 @@ const FamilySignUp = () => {
             required
           />
           <label htmlFor="membership_confirm">
-            I confirm I have read and agree to the above statement and wish to be considered for individual membership.
+            We confirm that we have read and agree to the Grange principles and wish to apply as a family.
           </label>
-        </div>
-
-        {/* Shared fields */}
-        <div className="form-group">
-          <label>Date of Birth<span className="asterisk">*</span></label>
-          <input type="date" value={dob} onChange={(e) => setDob(e.target.value)} required style={{marginLeft: '0.5rem'}} />
-        </div>
-
-        <div className="form-group">
-          <label>Sex<span className="asterisk">*</span></label>
-          {['Male', 'Female', 'Prefer Not to Say'].map((option) => (
-            <div key={option}>
-              <input
-                type="radio"
-                id={option}
-                name="sex"
-                value={option}
-                checked={sex === option}
-                onChange={(e) => setSex(e.target.value)}
-                required
-              />
-              <label htmlFor={option}>{option}</label>
-            </div>
-          ))}
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="recommender_one">Recommended by 1 (Optional)</label>
-          <input
-            type="text"
-            id="recommender_one"
-            value={recommender_one}
-            onChange={(e) => setRecommender1(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="recommender_two">Recommended by 2 (Optional)</label>
-          <input
-            type="text"
-            id="recommender_two"
-            value={recommender_two}
-            onChange={(e) => setRecommender2(e.target.value)}
-          />
         </div>
 
         <div className="form-group">
@@ -190,53 +171,104 @@ const FamilySignUp = () => {
           <input type="text" value={zipcode} onChange={(e) => setZipcode(e.target.value)} required />
         </div>
         <div className="form-group">
-          <label>Email<span className="asterisk">*</span></label>
+          <label>Email (for head of household)<span className="asterisk">*</span></label>
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
         <div className="form-group">
-          <label>Phone<span className="asterisk">*</span></label>
+          <label>Phone (for head of household)<span className="asterisk">*</span></label>
           <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required />
         </div>
-        <div className="form-group">
-          <label>Occupation<span className="asterisk">*</span></label>
-          <input type="text" value={occupation} onChange={(e) => setOccupation(e.target.value)} required />
-        </div>
 
         <div className="form-group">
-          <label>Are you retired?<span className="asterisk">*</span></label>
-          <div>
+          <label>Recommended by 1 (Optional)</label>
+          <input type="text" value={recommender_one} onChange={(e) => setRecommender1(e.target.value)} />
+        </div>
+        <div className="form-group">
+          <label>Recommended by 2 (Optional)</label>
+          <input type="text" value={recommender_two} onChange={(e) => setRecommender2(e.target.value)} />
+        </div>
+
+        <h3>Family Members</h3>
+        <p>
+            A family consists of a couple and their dependents, or a single person and their dependents. 
+            Dependents are defined as children, grandchildren, great grandchildren, foster, adopted or step-children 
+            under the age of 23, who live in the same household (or at a different address due to illness, education or 
+            military service). <br />
+            <em>Legal dependents of any age shall be considered part of their legal guardians' family.</em>
+        </p>
+
+        {members.map((member, index) => (
+        <div key={index} className="member-group">
+            <h4>
+            Family Member #{index + 1} {index === 0 && <span>(Primary Member)</span>}
+            </h4>
+
+            <label>Full Name<span className="asterisk">*</span></label>
             <input
-              type="radio"
-              id="retiredYes"
-              name="retired"
-              value="Yes"
-              checked={retired === 'Yes'}
-              onChange={(e) => setRetired(e.target.value)}
-              required
+            type="text"
+            value={member.full_name}
+            onChange={(e) => handleMemberChange(index, 'full_name', e.target.value)}
+            required
             />
-            <label htmlFor="retiredYes">Yes</label>
-          </div>
-          <div>
+
+            <div className="form-group-inline">
+            <div className="form-inline-item">
+                <label>Date of Birth<span className="asterisk">*</span></label>
+                <input
+                type="date"
+                value={member.dob}
+                onChange={(e) => handleMemberChange(index, 'dob', e.target.value)}
+                required
+                />
+            </div>
+            <div className="form-inline-item">
+                <label>Sex<span className="asterisk">*</span></label>
+                <select
+                value={member.sex}
+                onChange={(e) => handleMemberChange(index, 'sex', e.target.value)}
+                required
+                >
+                <option value="">--Select--</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Prefer Not to Say">Prefer Not to Say</option>
+                </select>
+            </div>
+            </div>
+
+            <label>Occupation (leave blank if not applicable)</label>
             <input
-              type="radio"
-              id="retiredNo"
-              name="retired"
-              value="No"
-              checked={retired === 'No'}
-              onChange={(e) => setRetired(e.target.value)}
+            type="text"
+            value={member.occupation}
+            onChange={(e) => handleMemberChange(index, 'occupation', e.target.value)}
             />
-            <label htmlFor="retiredNo">No</label>
-          </div>
-        </div>
 
-        <div className="form-group">
-          <label>Signature (Please type your full name)<span className="asterisk">*</span></label>
-          <input type="text" value={signature} onChange={(e) => setSignature(e.target.value)} required />
+            <div className="form-group">
+            <input
+                type="checkbox"
+                id={`confirm-${index}`}
+                checked={member.confirmed || false}
+                onChange={(e) => handleMemberChange(index, 'confirmed', e.target.checked)}
+                required
+                style={{marginTop: '1rem'}}
+            />
+            <label htmlFor={`confirm-${index}`}>
+                Yes, I confirm my information is correct and that I am signing up to be part of a family membership for the Grange.
+            </label>
+            </div>
         </div>
+        ))}
 
-        <button type="submit" disabled={isSubmitting} className="submit-button" style={{ marginTop: '1.5rem' }}>
-          {isSubmitting ? 'Submitting...' : 'Sign Up'}
+        {members.length < 6 && (
+        <button type="button" onClick={addMember} className="add-member-button">
+            + Add Another Family Member
         </button>
+        )}
+
+        <button type="submit" disabled={isSubmitting} className="submit-button">
+        {isSubmitting ? 'Submitting...' : 'Submit Family Application'}
+        </button>
+
       </form>
     </div>
   );

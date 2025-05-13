@@ -81,3 +81,38 @@
 .asterisk {
   color: #e10036;
 }
+
+.add-member-button {
+  padding: 10px 20px;
+  background-color: #79926A;
+  color: #fff;
+  text-align: center;
+  align-self: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Open Sans';
+  transition: background-color 0.3s ease;
+  width: 40%; 
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+}
+
+.form-group-inline {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-inline-item {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="date"] {
+  height: 2.5rem;
+  font-size: 1rem;
+}

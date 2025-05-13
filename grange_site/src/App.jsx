@@ -15,6 +15,7 @@ import { Login } from './pages/Login.jsx';
 import { AdminDashboard } from './pages/AdminDashboard.jsx';
 import  AssociateSignUp  from './sign_up_pages/AssociateSignUp.jsx';
 import  IndividualSignUp  from './sign_up_pages/IndividualSignUp.jsx';
+import  FamilySignUp  from './sign_up_pages/FamilySignUp.jsx';
 
 import { Scholarships } from './pages/Scholarships.jsx';
 
@@ -39,6 +40,7 @@ function App() {
           <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
           <Route path="/sign-up-associate" element={<AssociateSignUp/>}/>
           <Route path="/sign-up-individual" element={<IndividualSignUp/>}/>
+          <Route path="/sign-up-family" element={<FamilySignUp/>}/>
         </Route>
       </Routes>
     </Router>

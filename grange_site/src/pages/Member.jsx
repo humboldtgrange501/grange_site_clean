@@ -30,7 +30,7 @@ export function Member () {
                     <h2>4. ENJOY</h2>
                 </div>
                
-                <div className="membership-options"> {/* Holds all the info sections */}
+                <div className="membership-options"> 
 
                     <div className="membership-info-breakdown"> {/* Individual Membership Info */}
                         <PrimaryButton to="/membership">Individual Membership</PrimaryButton>
@@ -118,7 +118,7 @@ export function Member () {
                             </li>
                         </ul>*/}
                         <div className="membership-application-buttons">
-                            <ThirdButton to="pdfs/application-forms/Family_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Apply Now</ThirdButton>
+                            <ThirdButton to="/sign-up-family" newTab>Apply Now</ThirdButton>
                         </div>
                         <div className="membership-disclaimer">
                             <p> OR download a PDF version {' '}

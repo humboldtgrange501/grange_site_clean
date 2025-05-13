@@ -294,7 +294,7 @@ const AssociateSignUp = () => {
         </div>
 
         <button type="submit" disabled={isSubmitting} className="submit-button" style={{marginTop: '1.5rem'}}>
-          {isSubmitting ? 'Submitting...' : 'Sign Up'}
+          {isSubmitting ? 'Submitting...' : 'Submit Associate Application'}
           
         </button>
       </form>

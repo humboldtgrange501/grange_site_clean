@@ -235,7 +235,7 @@ const IndividualSignUp = () => {
         </div>
 
         <button type="submit" disabled={isSubmitting} className="submit-button" style={{ marginTop: '1.5rem' }}>
-          {isSubmitting ? 'Submitting...' : 'Sign Up'}
+          {isSubmitting ? 'Submitting...' : 'Submit Individual Application'}
         </button>
       </form>
     </div>
