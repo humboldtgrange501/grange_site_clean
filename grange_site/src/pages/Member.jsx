@@ -172,7 +172,7 @@ export function Member () {
 
                 </div>
 
-                <div className="junior-membership"> {/* Junior Membership Info */}
+                <div className="junior-membership" id="junior-membership-info"> {/* Junior Membership Info */}
                         <PrimaryButton to="/membership" newTab>Junior Grange Membership &mdash; for ages 5 to 14</PrimaryButton>
                         <h3 className="dues">Annual Dues: FREE</h3>
                         <p> Junior Grange membership is open to any child at least 5 years 

@@ -77,7 +77,7 @@ export function About () {
                         <li><p>Welcome members of all ages.</p></li>
                         <li><p>Offer full membership beginning at age 14.</p></li>
                         <li><p>Invite children aged 5 to 14 to join our  {' '}
-                            <a href="/">Junior Grange</a> program.</p></li>
+                            <a href="/membership#junior-membership-info">Junior Grange</a> program.</p></li>
                     </ul>
                 </div>
 
