@@ -20,6 +20,19 @@ export function Rentals () {
                     </p>
                 </section>
 
+                <section className="rental-spaces">
+                    <h2>Main Hall</h2>
+                    <p>Our main hall which has a hardwood floor is approximately 2,301 sq. ft. (59 x 39) 
+                        and has a small (12 x 17) stage. The walls are lined with folding theater seats.</p>
+                    <h2>Kitchen</h2>
+                    <p>Our kitchen has a four burner commercial stove with large griddle and two ovens, 
+                        and a commercial refrigerator. {/*, dishwasher and available at an extra cost plates, cups, 
+                        tableware and chafing dishes.*/} The open-concept kitchen and dining area spans 1029 sq. ft (39 x 28), 
+                        offering enough space to comfortably accommodate 40 to 50 people.</p>
+                </section>
+
+
+
                 <section className="rental-contact">
                     <h2>How to Reserve</h2>
                     <p className="p2"> To inquire about availability or schedule a tour, please contact our Hall Manager at:<br />

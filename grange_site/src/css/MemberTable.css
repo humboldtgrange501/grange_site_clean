@@ -1,57 +1,113 @@
-
 .member-table-container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-  }
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-  .table-title {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
+.table-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  .member-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  
-  /* Table header */
-  .member-table thead {
-    background-color: #f4f4f4;
-  }
-  
-  .member-table th, .member-table td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  /* Styling the table rows */
-  .member-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  /* Edit button */
-  .edit-button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .edit-button:hover {
-    background-color: #0056b3;
-  }
-  
+.member-table-wrapper {
+  max-width: 100%;
+  overflow-x: auto; /* Allows scrolling on smaller screens */
+}
+
+.member-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  /* Allow the columns to adjust their width based on content */
+  table-layout: auto; 
+}
+
+.member-table thead {
+  background-color: #f4f4f4;
+}
+
+.member-table th, .member-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+  word-wrap: break-word; /* Ensures content doesn't overflow */
+}
+
+.member-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Edit button */
+.edit-button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
 .family-name {
   text-align: left;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .member-table th, .member-table td {
+    font-size: 14px;
+    padding: 8px;
+  }
 
+  .table-title {
+    font-size: 20px;
+  }
+
+  .member-table-wrapper {
+    overflow-x: auto; /* Enables horizontal scrolling for mobile view */
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS devices */
+  }
+
+  .member-table {
+    width: 100%;
+    table-layout: auto; /* Allow columns to auto adjust based on content */
+  }
+}
+
+@media (max-width: 480px) {
+  .table-title {
+    font-size: 18px;
+  }
+
+  .member-table th, .member-table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
+
+
+/* General input styling inside the table */
+.member-table input {
+  width: 100%; /* Make inputs fill the entire width of the cell */
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+}
+
+/* Prevent stretching in edit mode for individual cells */
+.member-table input[type="checkbox"] {
+  width: auto; /* Keep checkbox input as compact as normal */
+}
+
+/* Specific styling for inputs in table cells */
+.member-table td input {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}

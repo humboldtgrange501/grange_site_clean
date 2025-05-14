@@ -1,41 +1,30 @@
+// Updated version of MemberTable to show all members in one table, group by Member Type, and enable editing
 import React, { useEffect, useState } from 'react';
 import supabase from '../SupabaseClient';
 import '../css/MemberTable.css';
 
+
 const MemberTable = () => {
-  const [individuals, setIndividuals] = useState([]);
-  const [families, setFamilies] = useState([]);
-  const [associates, setAssociates] = useState([]);
-  const [subscribers, setSubscribers] = useState([]);
+  const [members, setMembers] = useState([]);
+  const [editingId, setEditingId] = useState(null);
+  const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchMembers = async () => {
       try {
-        const { data: members, error: membersError } = await supabase.from('members').select('*');
-        const { data: familiesData, error: familiesError } = await supabase.from('families').select('*');
-        const { data: subscriberData, error: subError } = await supabase
-                .from('subscribers')
-                .select('*')
-                .order('created_at', { ascending: false });
+        const { data, error } = await supabase
+          .from('members')
+          .select('*')
+          .order('full_name', { ascending: true });
 
-        if (membersError || familiesError || subError) {
-          throw new Error(membersError?.message || familiesError?.message || subError?.message);
-        }
 
-        const individualMembers = members.filter(m => m.membership_type === 'individual');
-        const associateMembers = members.filter(m => m.membership_type === 'associate');
+        if (error) throw error;
 
-        const familiesGrouped = familiesData.map(family => {
-          const familyMembers = members.filter(m => m.family_id === family.id);
-          return { ...family, members: familyMembers };
-        });
 
-        setIndividuals(individualMembers);
-        setAssociates(associateMembers);
-        setFamilies(familiesGrouped);
-        setSubscribers(subscriberData);
+        setMembers(data);
         setLoading(false);
       } catch (err) {
         setError(err.message);
@@ -43,94 +32,160 @@ const MemberTable = () => {
       }
     };
 
-    fetchData();
+
+    fetchMembers();
   }, []);
 
-  const renderMemberRow = (member) => (
-    <tr key={member.id}>
-      <td>{member.full_name}</td>
-      <td>{member.address}</td>
-      <td>{member.dues_paid ? 'Yes' : 'No'}</td>
-      <td>{member.family_id ? 'Yes' : 'No'}</td>
-      <td>{member.membership_type}</td>
-      <td><button className="edit-button">Edit</button></td>
-    </tr>
-  );
+
+  const handleEditClick = (member) => {
+    setEditingId(member.id);
+    setFormData({ ...member });
+  };
+
+
+  const handleSaveClick = async () => {
+    const { id, ...updatedData } = formData;
+    const { error } = await supabase
+      .from('members')
+      .update(updatedData)
+      .eq('id', id);
+
+
+    if (!error) {
+      setMembers(members.map(m => m.id === id ? { ...formData } : m));
+      setEditingId(null);
+    } else {
+      alert('Error saving changes: ' + error.message);
+    }
+  };
+
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value,
+    });
+  };
+
+
+  const getMemberTypeLabel = (type) => {
+    switch (type) {
+      case 'individual': return 'Individual';
+      case 'junior': return 'Junior';
+      case 'associate': return 'Associate';
+      case 'family_head': return 'Family Head';
+      case 'family_member': return 'Family Member';
+      default: return type;
+    }
+  };
+
+
+  const sortedMembers = [...members].sort((a, b) => {
+    return getMemberTypeLabel(a.membership_type).localeCompare(getMemberTypeLabel(b.membership_type));
+  });
+
+
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
+
   return (
     <div className="member-table-container">
-      <h2 className="table-title">Individual Members</h2>
+      <h2 className="table-title">All Members</h2>
       <table className="member-table">
         <thead>
           <tr>
             <th>Name</th>
             <th>Address</th>
+            <th>Type</th>
             <th>Paid?</th>
-            <th>Family?</th>
-            <th>Status</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>
-          {individuals.map(renderMemberRow)}
-        </tbody>
-      </table>
-
-      <h2 className="table-title">Families</h2>
-      {families.map(family => (
-        <div key={family.id} className="family-group">
-          <h3 className="family-name">{family.family_name}</h3>
-          <table className="member-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Paid?</th>
-                <th>Role</th>
-                <th>Status</th>
-                <th>Edit</th>
-              </tr>
-            </thead>
-            <tbody>
-              {family.members.map(renderMemberRow)}
-            </tbody>
-          </table>
-        </div>
-      ))}
-
-      <h2 className="table-title">Associate Members</h2>
-      <table className="member-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Paid?</th>
-            <th>Family?</th>
-            <th>Status</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>
-          {associates.map(renderMemberRow)}
-        </tbody>
-      </table>
-
-      <h2 className="table-title">Email Subscribers</h2>
-      <table className="member-table">
-        <thead>
-          <tr>
+            <th>Active?</th>
             <th>Email</th>
-            <th>Subscribed On</th>
+            <th>Phone</th>
+            <th>DOB</th>
+            <th>Sex</th>
+            <th>Occupation</th>
+            <th>Retired?</th>
+            <th>Recommenders</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
-          {subscribers.map(sub => (
-            <tr key={sub.id}>
-              <td>{sub.email}</td>
-              <td>{new Date(sub.created_at).toLocaleDateString()}</td>
+          {sortedMembers.map(member => (
+            <tr key={member.id}>
+              <td>{editingId === member.id ? <input name="full_name" value={formData.full_name || ''} onChange={handleChange} /> : member.full_name}</td>
+              {/*<td>{editingId === member.id ? <input name="address" value={formData.address || ''} onChange={handleChange} /> : member.address}</td>
+              */}
+              <td>
+              {editingId === member.id ? (
+                // Split the address into components in edit mode
+                <>
+                  <input 
+                    name="address" 
+                    value={formData.address || ''} 
+                    onChange={handleChange} 
+                    placeholder="Street Address" 
+                  />
+                  <input 
+                    name="city" 
+                    value={formData.city || ''} 
+                    onChange={handleChange} 
+                    placeholder="City" 
+                  />
+                  <input 
+                    name="state" 
+                    value={formData.state || ''} 
+                    onChange={handleChange} 
+                    placeholder="State" 
+                  />
+                  <input 
+                    name="zipcode" 
+                    value={formData.zipcode || ''} 
+                    onChange={handleChange} 
+                    placeholder="Zip" 
+                  />
+                </>
+              ) : (
+                // Concatenate the address when not in edit mode
+                `${member.address || ''} ${member.city || ''}, ${member.state || ''} ${member.zipcode || ''}`
+              )}
+            </td>
+              
+              
+              <td>{getMemberTypeLabel(member.membership_type)}</td>
+              <td>{editingId === member.id ? <input type="checkbox" name="dues_paid" checked={formData.dues_paid || false} onChange={handleChange} /> : member.dues_paid ? 'Yes' : 'No'}</td>
+              <td>{editingId === member.id ? <input type="checkbox" name="is_active" checked={formData.is_active || false} onChange={handleChange} /> : member.is_active ? 'Yes' : 'No'}</td>
+              <td>{editingId === member.id ? <input name="email" value={formData.email || ''} onChange={handleChange} /> : member.email}</td>
+              <td>{editingId === member.id ? <input name="phone" value={formData.phone || ''} onChange={handleChange} /> : member.phone}</td>
+              <td>{editingId === member.id ? <input name="dob" value={formData.dob || ''} onChange={handleChange} /> : member.dob}</td>
+              <td>{editingId === member.id ? <input name="sex" value={formData.sex || ''} onChange={handleChange} /> : member.sex}</td>
+              <td>{editingId === member.id ? <input name="occupation" value={formData.occupation || ''} onChange={handleChange} /> : member.occupation}</td>
+              <td>{editingId === member.id ? <input type="checkbox" name="retired" value={formData.retired || ''} onChange={handleChange} /> : member.retired ? 'Yes' : ''}</td>
+              <td>
+                  {editingId === member.id ? (
+                    <input
+                      name="recommenders"
+                      value={`${formData.recommender_one || ''}${formData.recommender_one && formData.recommender_two ? ', ' : ''}${formData.recommender_two || ''}`}
+                      onChange={handleChange}
+                    />
+                  ) : (
+                    `${member.recommender_one || ''}${member.recommender_one && member.recommender_two ? ', ' : ''}${member.recommender_two || ''}`
+                  )}
+              </td>
+
+              
+              <td>
+                {editingId === member.id ? (
+                  <>
+                    <button onClick={handleSaveClick}>Save</button>
+                    <button onClick={() => setEditingId(null)}>Cancel</button>
+                  </>
+                ) : (
+                  <button onClick={() => handleEditClick(member)}>Edit</button>
+                )}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -139,4 +194,6 @@ const MemberTable = () => {
   );
 };
 
+
 export default MemberTable;
+

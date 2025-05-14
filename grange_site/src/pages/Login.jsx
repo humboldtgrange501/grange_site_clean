@@ -27,6 +27,7 @@ export function Login() {
     <>
     <div className="login-page">
         <h1>Grange Admin Login</h1>
+        <h4 style={{marginTop: '0'}}><em>For Humboldt Grange #501 Admins only.</em></h4>
         <form onSubmit={handleLogin}>
             <div className="login-fields">
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
