@@ -34,13 +34,16 @@ export function Rentals () {
 
 
                     <h2>Kitchen</h2>
-                    <p>Our kitchen has a four burner commercial stove with large griddle and two ovens, 
+                    <p className="p2">Our kitchen has a four burner commercial stove with large griddle and two ovens, 
                         and a commercial refrigerator. {/*, dishwasher and available at an extra cost plates, cups, 
                         tableware and chafing dishes.*/} The open-concept kitchen and dining area spans 1029 sq. ft (39 x 28), 
                         offering enough space to comfortably accommodate 40 to 50 people.</p>
+
+                    <div className="hall-photos">
+                        <img src="../images/rental/kitchen_one.jpg" alt="kitchen"/>
+                        <img src="../images/rental/kitchen_two.jpg" alt="kitchen"/>
+                    </div>
                 </section>
-
-
 
                 <section className="rental-contact">
                     <h2>How to Reserve</h2>
@@ -50,7 +53,93 @@ export function Rentals () {
                     </p>
                 </section>
 
-                <section className="rental-rates">
+                <div className="rental-div-center-text">
+
+                <h2> Basic Rental Rates </h2>
+                <p className="p2">
+                    Below are our basic rental rates. Once you contact us to discuss your event we can provide an 
+                    accurate cost. <br/>
+                    We provide reduced rates for Grange members and Non-Profits&mdash;please  {' '}
+                    <a href="/contact">contact us</a> for more details.
+                </p>
+
+                <div className="rental-table">
+                    <div className="rental-row">
+                        <div className="rental-label"><strong>Full Day Rental</strong> (6am to 6am)</div>
+                        <div className="rental-data">$500</div>
+                    </div>
+                    <div className="rental-row">
+                        <div className="rental-label"><strong>Full Day Rental w/alcohol</strong><br/> (6am to 6am)</div>
+                        <div className="rental-data">
+                            $600
+                        </div>
+                    </div>
+                    <div className="rental-row">
+                        <div className="rental-label"><strong>Set Up Day Before*</strong> (5pm to 10pm)</div>
+                        <div className="rental-data">
+                            $100
+                        </div>
+                    </div>
+                    <div className="rental-row">
+                        <div className="rental-label"><strong>Clean Up Day After*</strong> (7am to 10am)</div>
+                        <div className="rental-data">
+                            $100
+                        </div>
+                    </div>
+                    <div className="rental-row">
+                        <div className="rental-label"><strong>Trash Removal</strong> (per bag)</div>
+                        <div className="rental-data">
+                            $25
+                        </div>
+                    </div>
+                    <div className="rental-row">
+                        <div className="rental-label"><strong>Labor</strong>&mdash;unscheduled after event due to renter not properly returning Hall to "as rented" condition</div>
+                        <div className="rental-data">
+                            $25/hour <br/> (minimum 3 hours)
+                        </div>
+                    </div>
+                    <p style={{padding: '0 1rem'}}>
+                        *Please Note: If there is another rental the day before or the day after your event the 
+                        Hours for set-up and /or clean up do not apply. Additionally, the insurance certificate MUST 
+                        cover all day(s) you are using the Grange.
+                    </p>
+                </div>
+                
+
+                <h2> Deposit </h2>
+                <p className="p2">
+                    All rentals must be accompanied by a security/cleaning deposit which will be refunded within 30 days 
+                    if the hall is in an “as rented” condition at the end of the rental. 
+                </p>
+
+                <div className="rental-table">
+                    <div className="rental-row">
+                        <div className="rental-label"><strong>Events not serving alcohol</strong></div>
+                        <div className="rental-data">$350</div>
+                    </div>
+                    <div className="rental-row">
+                        <div className="rental-label"><strong>Events serving alcohol</strong></div>
+                        <div className="rental-data">$500</div>
+                    </div>
+                    <p style={{padding: '0 1rem'}}>
+                        Conditions under which the cleaning deposit will be automatically forfeitted: 
+                        <ol style={{textAlign: 'left'}}>
+                            <li>
+                                Renters may not play any loud music after 10pm per county ordinance. 
+                            </li>
+                            <li>
+                                Renters (or anyone from the renter's party) may not force open locked doors/drawers.
+                            </li>
+                        </ol>
+                    </p>
+                </div>
+                </div>
+
+
+
+
+
+               {/*} <section className="rental-rates">
                     <h2>Rental Rates</h2>
                     <p className="p2">
                     A <strong>$50 non-refundable deposit</strong> is required to reserve your date. <br/>
@@ -70,15 +159,13 @@ export function Rentals () {
                         </ul>
                     </li>
                     </ul>
-                </section>
+                </section>*/}
 
                 <section className="rental-insurance">
                     <h2>Insurance Requirements</h2>
                     <p className="p2">
                     All events require a <strong>$2,000,000 liability insurance policy</strong>, with the
-                    <strong> Humboldt Grange named as “Additionally Insured.”</strong>
-                    </p>
-                    <p className="p2">
+                    <strong> Humboldt Grange named as “Additionally Insured.”</strong> <br/>
                     Many renters use sites like <a href="https://www.eventhelper.com" target="_blank" rel="noopener noreferrer">eventhelper.com</a>
                     &nbsp;or their personal insurance provider. Feel free to reach out if you need guidance.
                     </p>

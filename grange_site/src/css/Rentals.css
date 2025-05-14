@@ -40,3 +40,73 @@
       flex-direction: column;
     }
   }
+
+
+
+  .rental-table {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    margin: 2rem auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .rental-row {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .rental-label,
+  .rental-data {
+    padding: 1rem;
+    flex: 1;
+    border-right: 1px solid #ccc;
+  }
+  
+  .rental-label {
+    background-color: #f0f0f0;
+    /*font-weight: bold;*/
+    font-family: 'Georgia', serif;
+  }
+
+  .rental-label strong {
+    font-size: 1.2rem;
+  }
+  
+  .rental-row:last-child {
+    border-bottom: none;
+  }
+  
+  .rental-data {
+    border-right: none;
+  }
+
+  .rental-div-center-text {
+    margin: 0 4rem;
+  }
+  
+  @media (max-width: 600px) {
+     .rental-div-center-text {
+      margin: 0 0;
+  }   
+    .rental-row {
+      flex-direction: column;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+    }
+  
+    .rental-label,
+    .rental-data {
+      border-right: none;
+      border-bottom: 1px solid #eee;
+    }
+  
+    .rental-data {
+      border-bottom: none;
+    }
+  }
+  
+  
