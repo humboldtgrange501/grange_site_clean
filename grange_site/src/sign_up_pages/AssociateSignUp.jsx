@@ -161,17 +161,18 @@ const AssociateSignUp = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="recommender_one">Recommended by 1 (Optional)</label>
+          <label htmlFor="recommender_one">Recommended by 1<span className="asterisk">*</span></label>
           <input
             type="text"
             id="recommender_one"
             value={recommender_one}
             onChange={(e) => setRecommender1(e.target.value)}
+            required
           />
         </div>
 
         <div className="form-group">
-          <label htmlFor="recommender_two">Recommended by 2 (Optional)</label>
+          <label htmlFor="recommender_two">Recommended by 2</label>
           <input
             type="text"
             id="recommender_two"

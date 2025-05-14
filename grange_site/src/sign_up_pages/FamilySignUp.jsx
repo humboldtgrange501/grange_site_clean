@@ -183,11 +183,18 @@ const FamilySignUp = () => {
         </div>
 
         <div className="form-group">
-          <label>Recommended by 1 (Optional)</label>
-          <input type="text" value={recommender_one} onChange={(e) => setRecommender1(e.target.value)} />
+          <label htmlFor="recommender_one">Recommended by 1<span className="asterisk">*</span></label>
+          <input
+            type="text"
+            id="recommender_one"
+            value={recommender_one}
+            onChange={(e) => setRecommender1(e.target.value)}
+            required
+          />
         </div>
+
         <div className="form-group">
-          <label>Recommended by 2 (Optional)</label>
+          <label>Recommended by 2</label>
           <input type="text" value={recommender_two} onChange={(e) => setRecommender2(e.target.value)} />
         </div>
 
