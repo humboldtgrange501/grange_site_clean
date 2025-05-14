@@ -31,7 +31,7 @@ function App() {
           <Route path="/about" element={<About/>}/>
           <Route path="/about/history" element={<History />} />
           <Route path="/membership" element={<Member/>}/>
-          <Route path="/about/officers" element={<Team />} />  
+          <Route path="/about/members" element={<Team />} />  
           <Route path="/about/humboldt-county-granges" element={<Granges />} />  
           <Route path="/calendar" element={<Calendar/>}/>
           <Route path="/rentals" element={<Rentals/>}/>

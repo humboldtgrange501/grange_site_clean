@@ -14,7 +14,7 @@ export function About () {
         <div className="about-container">
             <h1>About Us</h1>
             <div className="about-header">
-            <img className="about-header-img" src="./images/grange_nice.jpg" alt="Humboldt Grange #501"/> 
+            <img className="about-header-img" src="./images/about/grange_nice.jpg" alt="Humboldt Grange #501"/> 
                 <div className="about-header-text">
                     <h2>What is the Grange?</h2>
                     <p className="p1">
@@ -33,7 +33,7 @@ export function About () {
                         and citizenship for more than 100 years. 
                     </p>
                 </div>
-                <img className="about-join-img" src="./images/spring_board_grange.jpg" alt="Humboldt Grange #501"/> 
+                <img className="about-join-img" src="./images/about/spring_board_grange.jpg" alt="Humboldt Grange #501"/> 
             </div>
             
             

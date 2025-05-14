@@ -10,8 +10,8 @@ export function Team () {
 
     return (
         <>
-            <Helmet><title>Our Officers</title></Helmet>
-            <h1>Our Officers</h1>
+            <Helmet><title>Our Members</title></Helmet>
+            <h1>Our Members</h1>
             <LeadershipTeam />
         </>
     )

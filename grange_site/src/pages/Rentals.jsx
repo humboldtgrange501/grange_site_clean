@@ -22,8 +22,17 @@ export function Rentals () {
 
                 <section className="rental-spaces">
                     <h2>Main Hall</h2>
-                    <p>Our main hall which has a hardwood floor is approximately 2,301 sq. ft. (59 x 39) 
-                        and has a small (12 x 17) stage. The walls are lined with folding theater seats.</p>
+                    <p className="p2">Our main hall which has a hardwood floor is approximately 2,301 sq. ft. (59 x 39) 
+                        and has a small (12 x 17) stage. <br/> The walls are lined with 46 folding theater seats.</p>
+                    
+                    <div className="hall-photos">
+                        <img src="../images/rental/hall_one.jpg" alt="hall"/>
+                        <img src="../images/rental/hall_two.jpg" alt="hall"/>
+                        <img src="../images/rental/hall_three.jpg" alt="hall"/>
+                    </div>
+
+
+
                     <h2>Kitchen</h2>
                     <p>Our kitchen has a four burner commercial stove with large griddle and two ovens, 
                         and a commercial refrigerator. {/*, dishwasher and available at an extra cost plates, cups, 
@@ -36,7 +45,8 @@ export function Rentals () {
                 <section className="rental-contact">
                     <h2>How to Reserve</h2>
                     <p className="p2"> To inquire about availability or schedule a tour, please contact our Hall Manager at:<br />
-                    <strong> 707-442-4890</strong> <em>(Press 1 for Hall Rentals)</em>
+                    <strong> 707-442-4890</strong> <em>(Press 1 for Hall Rentals)</em> or email {' '}
+                    <a href="mailto:rentals@humboldtgrange501.org">rentals@humboldtgrange501.org</a>
                     </p>
                 </section>
 
@@ -74,15 +84,6 @@ export function Rentals () {
                     </p>
                 </section>
 
-                <section className="rental-why">
-                    <h2>Why Choose the Humboldt Grange?</h2>
-                    <ul>
-                        <li>Spacious hall with stage, kitchen, and natural light</li>
-                        <li>Ample parking on-site</li>
-                        <li>Flexible decorating and setup options</li>
-                        <li>Friendly, local support team</li>
-                    </ul>
-                </section>
 
             </div>
 

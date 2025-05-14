@@ -36,7 +36,7 @@ export function History () {
                     <p className="p2">Explore the tools, lessons, and values that form the foundation of Grange heritage.</p>
                     
                     <ThirdButton>
-                        <a href="../images/degrees_and_symbols.jpg" target="_blank" rel="norefferrer" className="thirdbtn-a">
+                        <a href="../images/historical/degrees_and_symbols.jpg" target="_blank" rel="norefferrer" className="thirdbtn-a">
                             View the Degrees & Symbols
                         </a>
                     </ThirdButton>
