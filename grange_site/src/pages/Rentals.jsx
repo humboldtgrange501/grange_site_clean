@@ -100,7 +100,7 @@ export function Rentals () {
                     </div>
                     <p style={{padding: '0 1rem'}}>
                         *Please Note: If there is another rental the day before or the day after your event the 
-                        Hours for set-up and /or clean up do not apply. Additionally, the insurance certificate MUST 
+                        hours for set-up and /or clean up do not apply. Additionally, the insurance certificate MUST 
                         cover all day(s) you are using the Grange.
                     </p>
                 </div>
@@ -122,7 +122,7 @@ export function Rentals () {
                         <div className="rental-data">$500</div>
                     </div>
                     <p style={{padding: '0 1rem'}}>
-                        Conditions under which the cleaning deposit will be automatically forfeitted: 
+                        Conditions under which the cleaning deposit will be automatically forfeited: 
                         <ol style={{textAlign: 'left'}}>
                             <li>
                                 Renters may not play any loud music after 10pm per county ordinance. 
@@ -166,7 +166,7 @@ export function Rentals () {
                     <p className="p2">
                     All events require a <strong>$2,000,000 liability insurance policy</strong>, with the
                     <strong> Humboldt Grange named as “Additionally Insured.”</strong> <br/>
-                    Many renters use sites like <a href="https://www.eventhelper.com" target="_blank" rel="noopener noreferrer">eventhelper.com</a>
+                    Many renters use sites like <a href="https://www.theeventhelper.com" target="_blank" rel="noopener noreferrer">theeventhelper.com</a>
                     &nbsp;or their personal insurance provider. Feel free to reach out if you need guidance.
                     </p>
                 </section>
