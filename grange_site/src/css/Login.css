@@ -56,3 +56,32 @@
         padding: 7rem 1rem;
   }
 }
+
+
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+
+.password-wrapper input {
+  flex: 1;
+  padding: 14px;
+  font-size: 20px;
+  padding-right: 40px; /* avoid overlap */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
