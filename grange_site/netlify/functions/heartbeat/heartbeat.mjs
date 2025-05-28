@@ -42,5 +42,5 @@ export default async () => {
 };
 
 export const config = {
-  schedule: '*/5 * * * *', // every 5 minutes for testing; adjust as needed
+  schedule: '55 4 * * 5', // every 5 minutes for testing; adjust as needed
 };
