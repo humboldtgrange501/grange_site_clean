@@ -3,15 +3,15 @@ import supabase from '../SupabaseClient';
 import '../css/MemberTable.css';
 
 const MemberTable = () => {
-  const [members, setMembers] = useState([]);
+  //const [members, setMembers] = useState([]);
   const [subscribers, setSubscribers] = useState([]);
-  const [editingId, setEditingId] = useState(null);
-  const [formData, setFormData] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  //const [editingId, setEditingId] = useState(null);
+  //const [formData, setFormData] = useState({});
+  //const [loading, setLoading] = useState(true);
+  //const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchMembers = async () => {
+    {/*const fetchMembers = async () => {
       try {
         const { data, error } = await supabase
           .from('members')
@@ -26,7 +26,7 @@ const MemberTable = () => {
         setError(err.message);
         setLoading(false);
       }
-    };
+    };*/}
 
     const fetchSubscribers = async () => {
       try {
@@ -43,11 +43,11 @@ const MemberTable = () => {
       }
     };
 
-    fetchMembers();
+    //fetchMembers();
     fetchSubscribers();
   }, []);
 
-  const handleEditClick = (member) => {
+  {/*const handleEditClick = (member) => {
     setEditingId(member.id);
     setFormData({ ...member });
   };
@@ -91,7 +91,7 @@ const MemberTable = () => {
   });
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (error) return <div>Error: {error}</div>;*/}
 
   return (
     
