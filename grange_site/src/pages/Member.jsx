@@ -55,7 +55,7 @@ export function Member () {
                             </li>
                         </ul>*/}
                         <div className="membership-application-buttons">
-                            <ThirdButton to="/sign-up-individual" newTab>
+                            <ThirdButton to="../../pdfs/application-forms/Individual_Member_Application_Humboldt_Grange_501_En.pdf" newTab>  {/*sign-up-individual*/}
                                 Apply Now
                             </ThirdButton>
                         </div>
@@ -118,7 +118,7 @@ export function Member () {
                             </li>
                         </ul>*/}
                         <div className="membership-application-buttons">
-                            <ThirdButton to="/sign-up-family" newTab>Apply Now</ThirdButton>
+                            <ThirdButton to="/../../pdfs/application-forms/Family_Member_Application_Humboldt_Grange_501_En.pdf" newTab>Apply Now</ThirdButton> {/*sign-up-family*/}
                         </div>
                         <div className="membership-disclaimer">
                             <p> OR download a PDF version {' '}
@@ -155,7 +155,7 @@ export function Member () {
                             </li>
                         </ul>*/}
                         <div className="membership-application-buttons">
-                            <ThirdButton to="/sign-up-associate" newTab>Apply Now</ThirdButton>
+                            <ThirdButton to="/../../pdfs/application-forms/Associate_Member_Application_Humboldt_Grange_501.pdf" newTab>Apply Now</ThirdButton>   {/*/sign-up-associate*/}
                         </div>
                         <div className="membership-disclaimer">
                             <p> OR download a PDF version {' '}
@@ -184,7 +184,7 @@ export function Member () {
                             the application, and get ready to have fun in the Junior Grange!
                         </p>
                         <div className="membership-application-buttons">
-                            <ThirdButton to="/sign-up-junior" newTab>Apply as a Junior Grange Member Today!</ThirdButton>
+                            <ThirdButton to="/../../pdfs/application-forms/Junior_Member_Application_Humboldt_Grange_501.pdf" newTab>Apply as a Junior Grange Member Today!</ThirdButton>   {/*/sign-up-junior*/}
                         </div>
                 </div>
 
