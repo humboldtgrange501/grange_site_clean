@@ -94,7 +94,9 @@ const MemberTable = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
+    
     <div className="member-table-container">
+      {/*
       <h2 className="table-title">All Members</h2>
       <table className="member-table">
         <thead>
@@ -163,7 +165,8 @@ const MemberTable = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> 
+      */}
 
       <h2 className="table-title">Email Subscribers</h2>
       <table className="member-table">
