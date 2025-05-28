@@ -11,7 +11,7 @@ const MemberTable = () => {
   //const [error, setError] = useState(null);
 
   useEffect(() => {
-    {/*const fetchMembers = async () => {
+    /*const fetchMembers = async () => {
       try {
         const { data, error } = await supabase
           .from('members')
@@ -26,7 +26,7 @@ const MemberTable = () => {
         setError(err.message);
         setLoading(false);
       }
-    };*/}
+    };*/
 
     const fetchSubscribers = async () => {
       try {
@@ -47,7 +47,7 @@ const MemberTable = () => {
     fetchSubscribers();
   }, []);
 
-  {/*const handleEditClick = (member) => {
+  /*const handleEditClick = (member) => {
     setEditingId(member.id);
     setFormData({ ...member });
   };
@@ -91,7 +91,7 @@ const MemberTable = () => {
   });
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;*/}
+  if (error) return <div>Error: {error}</div>;*/
 
   return (
     
