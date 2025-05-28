@@ -15,3 +15,5 @@ dist/
 # Ignore server-side scripts that might contain sensitive logic
 server.js
 mailgun.js
+# Local Netlify folder
+.netlify

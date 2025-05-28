@@ -4,10 +4,3 @@
 
 [build.environment]
   NODE_VERSION = "16"
-
-[functions]
-  node_bundler = "esbuild"
-
-    [functions.heartbeat]
-    schedule = "5 4 * * *"
-
