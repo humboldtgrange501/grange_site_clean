@@ -40,5 +40,5 @@ export default async (req) => {
 }
 
 export const config = {
-  schedule: '55 4 * * 5', // Thursdays 8:55pm PST (4:55am UTC Fri)
+  schedule: '*/5 * * * *', // Thursdays 8:55pm PST (4:55am UTC Fri)
 }
