@@ -9,4 +9,4 @@
   node_bundler = "esbuild"
 
 [[functions.heartbeat.schedule]]
-  cron = "55 4 * * 5" # every Friday at 04:55 UTC
+  cron = "55 4 * * 5" 
