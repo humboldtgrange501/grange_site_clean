@@ -8,5 +8,6 @@
 [functions]
   node_bundler = "esbuild"
 
-[[functions.heartbeat.schedule]]
-  cron = "55 4 * * 5" 
+    [functions.heartbeat]
+    schedule = "5 4 * * *"
+
