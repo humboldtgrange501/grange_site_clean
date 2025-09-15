@@ -43,7 +43,8 @@ export function Home () {
                 
             </div>
 
-            <div class="grange-anniversary">
+            <div class="grange-anniversary-div">
+                <div class="grange-anniversary">
                 <h2 class="anniversary-header">Celebrating 150 Years of the Grange!</h2>
                 <p class="anniversary-text">
                     In 2025, the Grange proudly honors 150 years of service and community.  <br/>
@@ -51,6 +52,7 @@ export function Home () {
                     and expo filled with history, fellowship, and celebration!
                 </p>
                 <ThirdButton to="https://www.castategrange.org/grange-convention" newTab>Learn More</ThirdButton>
+                </div>
             </div>
 
          {   /*<div className="subscribe-form-div">

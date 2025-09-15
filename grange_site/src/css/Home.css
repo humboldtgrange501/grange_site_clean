@@ -104,6 +104,9 @@
   max-width: 800px;
 }
 
+.grange-anniversary-div {
+  margin: auto; 
+}
 
 @media screen and (max-width: 600px) {
   .anniversary-header {
