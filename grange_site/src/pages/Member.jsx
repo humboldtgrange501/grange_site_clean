@@ -80,7 +80,7 @@ export function Member () {
                     
 
                     <div className="membership-info-breakdown"> {/* Family Membership Info */}
-                        <PrimaryButton to="/membership" newTab>Family Membership</PrimaryButton>
+                        <PrimaryButton to="/membership">Family Membership</PrimaryButton>
                         <h3 className="dues">Annual Dues: $64</h3>
                         <p> The Grange offers a family membership program open to any person of good character
                                     who has a desire to serve their community and be part of the larger fraternal Grange family.
@@ -173,7 +173,7 @@ export function Member () {
                 </div>
 
                 <div className="junior-membership" id="junior-membership-info"> {/* Junior Membership Info */}
-                        <PrimaryButton to="/membership" newTab>Junior Grange Membership &mdash; for ages 5 to 14</PrimaryButton>
+                        <PrimaryButton to="/membership" >Junior Grange Membership &mdash; for ages 5 to 14</PrimaryButton>
                         <h3 className="dues">Annual Dues: FREE</h3>
                         <p> Junior Grange membership is open to any child at least 5 years 
                             old and not be older than 14 years (membership terminates at the 

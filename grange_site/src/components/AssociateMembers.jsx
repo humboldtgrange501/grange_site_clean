@@ -13,6 +13,11 @@ const associateData = [
         photo: '/images/associate_members/sequoia_humane_society.jpg'
         
     },
+    {
+        name: 'Humboldt County Farm Bureau',
+        photo: '/images/associate_members/farm_bureau.jpg'
+        
+    },
     
     // Add more associates here
 ];
