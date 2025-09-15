@@ -75,3 +75,40 @@
     }
     
   }
+
+  /* ================= FOR THE ANNIVERSARY ONLY ========================== */
+
+  .grange-anniversary {
+  width: 80%;
+  background-color: #e6d493; /* same family as subscribe section */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Lora', serif;
+  justify-self: center;
+}
+
+.anniversary-header {
+  margin-bottom: 0px;
+}
+
+.anniversary-text {
+  font-size: 1.2rem;
+  color: #333;
+  max-width: 800px;
+}
+
+
+@media screen and (max-width: 600px) {
+  .anniversary-header {
+    font-size: 1.25rem;
+  }
+
+  
+}

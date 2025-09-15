@@ -115,7 +115,7 @@ export function Rentals () {
                 <div className="rental-table">
                     <div className="rental-row">
                         <div className="rental-label"><strong>Events not serving alcohol</strong></div>
-                        <div className="rental-data">$350</div>
+                        <div className="rental-data">$400</div>
                     </div>
                     <div className="rental-row">
                         <div className="rental-label"><strong>Events serving alcohol</strong></div>

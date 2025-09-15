@@ -1,9 +1,10 @@
 import React from "react";
 import PrimaryButton from '../components/PrimaryButton.jsx';
 import { Helmet } from 'react-helmet';
-import SubscribeForm from '../components/SubscribeForm.jsx';
+/*import SubscribeForm from '../components/SubscribeForm.jsx'*/
 import '../css/Home.css';
 import { useEffect } from 'react';
+import ThirdButton from "../components/ThirdButton.jsx";
 
 export function Home () {
     useEffect(() => {
@@ -41,9 +42,20 @@ export function Home () {
                 </div>
                 
             </div>
-         {   <div className="subscribe-form-div">
+
+            <div class="grange-anniversary">
+                <h2 class="anniversary-header">Celebrating 150 Years of the Grange!</h2>
+                <p class="anniversary-text">
+                    In 2025, the Grange proudly honors 150 years of service and community.  <br/>
+                    Join us October 8-12 at the Van Duzen River Grange Hall in Humboldt County for a special convention 
+                    and expo filled with history, fellowship, and celebration!
+                </p>
+                <ThirdButton to="https://www.castategrange.org/grange-convention" newTab>Learn More</ThirdButton>
+            </div>
+
+         {   /*<div className="subscribe-form-div">
                 <SubscribeForm />
-            </div>}
+            </div>*/}
             
         </>
            
